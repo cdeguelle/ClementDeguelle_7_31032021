@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 const recipes = [
     {
         id: 1,
@@ -1723,3 +1722,210 @@ const recipes = [
         ustensils: ['rouleau à patisserie', 'fouet']
     }
 ]
+
+// DOM Elements
+/* const mainSearchbarButton = document.getElementById('main__button') */
+const blueSearchbar = document.getElementById('secondary-blue__searchbar')
+const blueSearchbarButton = document.getElementById('secondary-blue__button')
+const blueSearchbarMenu = document.getElementById('secondary-blue__menu')
+const greenSearchbar = document.getElementById('secondary-green__searchbar')
+const greenSearchbarButton = document.getElementById('secondary-green__button')
+const greenSearchbarMenu = document.getElementById('secondary-green__menu')
+const redSearchbar = document.getElementById('secondary-red__searchbar')
+const redSearchbarButton = document.getElementById('secondary-red__button')
+const redSearchbarMenu = document.getElementById('secondary-red__menu')
+
+// Au chargement
+window.addEventListener('DOMContentLoaded', displayRecipesGrid(recipes))
+window.addEventListener('DOMContentLoaded', displaySearchbarMenus(recipes))
+
+// Menu bleu déroulant
+function toggleBlueNavbar () {
+    if (!blueSearchbarMenu.getAttribute('style') || blueSearchbarMenu.getAttribute('style') === 'display: none;') {
+        blueSearchbarMenu.style.display = 'grid'
+        blueSearchbar.style.width = '685px'
+        blueSearchbar.style.borderBottomLeftRadius = '0px'
+        blueSearchbar.style.borderBottomRightRadius = '0px'
+    } else {
+        blueSearchbarMenu.style.display = 'none'
+        blueSearchbar.style.width = '170px'
+    }
+}
+
+blueSearchbarButton.addEventListener('click', function (e) {
+    e.preventDefault()
+    toggleBlueNavbar()
+})
+
+// Menu vert déroulant
+function toggleGreenNavbar () {
+    if (!greenSearchbarMenu.getAttribute('style') || greenSearchbarMenu.getAttribute('style') === 'display: none;') {
+        greenSearchbarMenu.style.display = 'grid'
+        greenSearchbar.style.width = '685px'
+        greenSearchbar.style.borderBottomLeftRadius = '0px'
+        greenSearchbar.style.borderBottomRightRadius = '0px'
+    } else {
+        greenSearchbarMenu.style.display = 'none'
+        greenSearchbar.style.width = '170px'
+    }
+}
+
+greenSearchbarButton.addEventListener('click', function (e) {
+    e.preventDefault()
+    toggleGreenNavbar()
+})
+
+// Menu rouge déroulant
+function toggleRedNavbar () {
+    if (!redSearchbarMenu.getAttribute('style') || redSearchbarMenu.getAttribute('style') === 'display: none;') {
+        redSearchbarMenu.style.display = 'grid'
+        redSearchbar.style.width = '685px'
+        redSearchbar.style.borderBottomLeftRadius = '0px'
+        redSearchbar.style.borderBottomRightRadius = '0px'
+    } else {
+        redSearchbarMenu.style.display = 'none'
+        redSearchbar.style.width = '170px'
+    }
+}
+
+redSearchbarButton.addEventListener('click', function (e) {
+    e.preventDefault()
+    toggleRedNavbar()
+})
+
+// Pattern Factory
+function elFactory (type, attributes, ...children) {
+    const el = document.createElement(type)
+    for (const key in attributes) {
+        el.setAttribute(key, attributes[key])
+    }
+
+    children.forEach(child => {
+        if (typeof child === 'string') {
+            el.appendChild(document.createTextNode(child))
+        } else {
+            el.appendChild(child)
+        }
+    })
+
+    return el
+}
+
+// Remplissage dynamique de la grille de recettes
+function displayRecipesGrid () {
+    const recipesGrid = document.querySelector('.recipes-grid')
+    recipesGrid.innerHTML = ''
+    for (let index = 0; index < recipes.length; index++) {
+        const articleElement = elFactory(
+            'article',
+            { class: 'recipes-grid__item' },
+            elFactory(
+                'div',
+                {
+                    class: 'recipes-grid__picture'
+                }
+            ),
+            elFactory(
+                'div',
+                {
+                    class: 'recipes-grid__header'
+                },
+                elFactory(
+                    'h2',
+                    {
+                        class: 'recipes-grid__title'
+                    },
+                    recipes[index].name
+                ),
+                elFactory(
+                    'span',
+                    {
+                        class: 'recipes-grid__duration'
+                    },
+                    elFactory(
+                        'img',
+                        {
+                            src: './PNG/duration.png',
+                            alt: 'Durée',
+                            class: 'recipes-grid__duration--icon'
+                        }
+                    ),
+                    recipes[index].time + ' min'
+                )
+            ),
+            elFactory(
+                'div',
+                {
+                    class: 'recipes-grid__body'
+                },
+                elFactory(
+                    'div',
+                    {
+                        class: 'recipes-grid__ingredients',
+                        id: 'recipe-' + recipes[index].id
+                    }
+                ),
+                elFactory(
+                    'div',
+                    {
+                        class: 'recipes-grid__description'
+                    },
+                    recipes[index].description
+                )
+            )
+        )
+        /* const ingredientsBox = document.querySelector('#recipe-' + recipes[index].id)
+        for (let i = 0; i < recipes[index].ingredients.length; i++) {
+            const ingredientItem = elFactory(
+                'span',
+                {
+                    class: 'recipes-grid__ingredients--item'
+                },
+                recipes[index].ingredients[i].ingredient + ': ' + recipes[index].ingredients[i].quantity + recipes[index].ingredients[i].unit
+            )
+            ingredientsBox.appendChild(ingredientItem)
+        } */
+        recipesGrid.appendChild(articleElement)
+    }
+}
+
+// Contenu des barres de recherches secondaires
+function displaySearchbarMenus () {
+    blueSearchbarMenu.innerHTML = ''
+    for (let index = 0; index < recipes.length; index++) {
+        for (let i = 0; i < recipes[index].ingredients.length; i++) {
+            const ingredientList = elFactory(
+                'li',
+                {
+                    class: 'item-menu'
+                },
+                recipes[index].ingredients[i].ingredient
+            )
+            blueSearchbarMenu.appendChild(ingredientList)
+        }
+    }
+    greenSearchbarMenu.innerHTML = ''
+    for (let index = 0; index < recipes.length; index++) {
+        const applianceList = elFactory(
+            'li',
+            {
+                class: 'item-menu'
+            },
+            recipes[index].appliance
+        )
+        greenSearchbarMenu.appendChild(applianceList)
+    }
+    redSearchbarMenu.innerHTML = ''
+    for (let index = 0; index < recipes.length; index++) {
+        for (let i = 0; i < recipes[index].ustensils.length; i++) {
+            const ustensilList = elFactory(
+                'li',
+                {
+                    class: 'item-menu'
+                },
+                recipes[index].ustensils[i]
+            )
+            redSearchbarMenu.appendChild(ustensilList)
+        }
+    }
+}
