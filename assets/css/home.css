@@ -1,1 +1,179 @@
+header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-top: 40px; }
+
+#homepage-logo img {
+  width: 300px;
+  height: 100px; }
+
+#navigation {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 100%; }
+
+#main {
+  display: flex;
+  margin: 20px 100px; }
+  #main__searchbar {
+    width: 100%;
+    height: 70px;
+    background-color: #E7E7E7;
+    border-radius: 5px;
+    border: #E7E7E7;
+    padding-left: 20px; }
+  #main__button {
+    height: 60px;
+    background-color: #E7E7E7;
+    margin-left: -50px;
+    margin-top: 5px;
+    border: none;
+    cursor: pointer; }
+
+#secondary {
+  display: flex;
+  justify-content: left;
+  margin: 20px 100px; }
+  #secondary input {
+    width: 170px;
+    height: 70px;
+    padding: 15px;
+    border-radius: 5px;
+    margin-right: 20px; }
+    #secondary input::-moz-placeholder {
+      color: #ffffff;
+      opacity: 1; }
+    #secondary input:-ms-input-placeholder {
+      color: #ffffff;
+      opacity: 1; }
+    #secondary input::placeholder {
+      color: #ffffff;
+      opacity: 1; }
+  #secondary-blue input {
+    background-color: #3282F7;
+    border: #3282F7; }
+  #secondary-blue button {
+    background-color: #3282F7;
+    border: #3282F7;
+    margin-left: -50px;
+    border: none;
+    cursor: pointer; }
+  #secondary-blue__menu {
+    background-color: #3282F7;
+    list-style: none;
+    color: #ffffff;
+    width: 670px;
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 20px;
+    grid-column-gap: 30px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-right: 20px;
+    padding: 0 0 15px 15px;
+    z-index: -1; }
+  #secondary-green input {
+    background: #68D9A4;
+    border: #68D9A4; }
+  #secondary-green button {
+    background: #68D9A4;
+    border: #68D9A4;
+    margin-left: -50px;
+    border: none;
+    cursor: pointer; }
+  #secondary-green__menu {
+    background-color: #68D9A4;
+    list-style: none;
+    color: #ffffff;
+    width: 670px;
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 20px;
+    grid-column-gap: 30px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-right: 20px;
+    padding: 0 0 15px 15px;
+    z-index: -1; }
+  #secondary-red input {
+    background: #ED6454;
+    border: #ED6454; }
+  #secondary-red button {
+    background: #ED6454;
+    border: #ED6454;
+    margin-left: -50px;
+    border: none;
+    cursor: pointer; }
+  #secondary-red__menu {
+    background-color: #ED6454;
+    list-style: none;
+    color: #ffffff;
+    width: 670px;
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 20px;
+    grid-column-gap: 30px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-right: 20px;
+    padding: 0 0 15px 15px;
+    z-index: -1; }
+
+.item-menu {
+  font-size: 1.1em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif; }
+
+#recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  margin: 25px 100px; }
+
+.recipes-card__item {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #e7e7e7;
+  height: 400px; }
+
+.recipes-card__picture {
+  height: 180px;
+  background-color: #c7bebe;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; }
+
+.recipes-card__header {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px; }
+
+.recipes-card__title {
+  font-size: 1.2em;
+  max-width: 250px; }
+
+.recipes-card__duration--icon {
+  margin-right: 5px; }
+
+.recipes-card__body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 20px; }
+
+.recipes-card__description {
+  font-size: 0.8em;
+  overflow: hidden;
+  position: relative;
+  line-height: 1.2em;
+  max-height: 9.6em;
+  text-align: justify;
+  text-overflow: ellipsis; }
 

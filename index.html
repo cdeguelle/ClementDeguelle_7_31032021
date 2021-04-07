@@ -6,8 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./assets/css/home.css">
     <title>Les Petits Plats</title>
     <meta name="description" content="Cooking recipes website" />
 </head>
+
+<body>
+    <header id="header" role="banner">
+        <a href="#" id="homepage-logo">
+            <img src="./PNG/logo.png" alt="Les petits plats">
+        </a>
+        <nav id="navigation">
+            <div id="main">
+                <label for="main__searchbar"></label>
+                <input type="search" id="main__searchbar" name="searchbar" aria-label="Search through site content" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
+                <button id="main__button">
+                    <img src="./PNG/loupe.png" alt="Rechercher">
+                </button>
+            </div>
+            <div id="secondary">
+                <div id="secondary-blue">
+                    <label for="secondary-blue__searchbar"></label>
+                    <input type="search" id="secondary-blue__searchbar" name="searchbar" aria-label="Search through site content" placeholder="Ingredients">
+                    <button id="secondary-blue__button" class="secondary__button">
+                        <img src="./PNG/chevron.png" alt="Rechercher">
+                    </button>
+                    <ul id="secondary-blue__menu" class="secondary__menu"></ul>
+                </div>
+                <div id="secondary-green">
+                    <label for="secondary-green__searchbar"></label>
+                    <input type="search" id="secondary-green__searchbar" name="searchbar" aria-label="Search through site content" placeholder="Appareil">
+                    <button id="secondary-green__button" class="secondary__button">
+                        <img src="./PNG/chevron.png" alt="Rechercher">
+                    </button>
+                    <ul id="secondary-green__menu" class="secondary__menu"></ul>
+                </div>
+                <div id="secondary-red">
+                    <label for="secondary-red__searchbar"></label>
+                    <input type="search" id="secondary-red__searchbar" name="searchbar" aria-label="Search through site content" placeholder="Ustensiles">
+                    <button id="secondary-red__button" class="secondary__button">
+                        <img src="./PNG/chevron.png" alt="Rechercher">
+                    </button>
+                    <ul id="secondary-red__menu" class="secondary__menu"></ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="recipes-grid"></section>
+    </main>
+<script src="https://kit.fontawesome.com/7de816d9e9.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./assets/javascript/recipes.js"></script> 
+</body>
