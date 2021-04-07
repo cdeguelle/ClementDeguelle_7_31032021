@@ -1724,7 +1724,8 @@ const recipes = [
 ]
 
 // DOM Elements
-/* const mainSearchbarButton = document.getElementById('main__button') */
+const mainSearchbar = document.getElementById('main__searchbar')
+const mainSearchbarButton = document.getElementById('main__button')
 const blueSearchbar = document.getElementById('secondary-blue__searchbar')
 const blueSearchbarButton = document.getElementById('secondary-blue__button')
 const blueSearchbarMenu = document.getElementById('secondary-blue__menu')
@@ -1734,6 +1735,7 @@ const greenSearchbarMenu = document.getElementById('secondary-green__menu')
 const redSearchbar = document.getElementById('secondary-red__searchbar')
 const redSearchbarButton = document.getElementById('secondary-red__button')
 const redSearchbarMenu = document.getElementById('secondary-red__menu')
+const recipesGrid = document.getElementById('recipes-grid')
 
 // Au chargement
 window.addEventListener('DOMContentLoaded', displayRecipesGrid(recipes))
@@ -1749,6 +1751,8 @@ function toggleBlueNavbar () {
     } else {
         blueSearchbarMenu.style.display = 'none'
         blueSearchbar.style.width = '170px'
+        blueSearchbar.style.borderBottomLeftRadius = '5px'
+        blueSearchbar.style.borderBottomRightRadius = '5px'
     }
 }
 
@@ -1813,41 +1817,44 @@ function elFactory (type, attributes, ...children) {
 
 // Remplissage dynamique de la grille de recettes
 function displayRecipesGrid () {
-    const recipesGrid = document.querySelector('.recipes-grid')
     recipesGrid.innerHTML = ''
     for (let index = 0; index < recipes.length; index++) {
         const articleElement = elFactory(
             'article',
-            { class: 'recipes-grid__item' },
+            {
+                class: 'recipes-card__item',
+                id: 'recipe-card__' + recipes[index].id
+            },
             elFactory(
                 'div',
                 {
-                    class: 'recipes-grid__picture'
+                    class: 'recipes-card__picture'
                 }
             ),
             elFactory(
                 'div',
                 {
-                    class: 'recipes-grid__header'
+                    class: 'recipes-card__header'
                 },
                 elFactory(
                     'h2',
                     {
-                        class: 'recipes-grid__title'
+                        class: 'recipes-card__title',
+                        id: 'recipe-card__title--' + recipes[index].id
                     },
                     recipes[index].name
                 ),
                 elFactory(
                     'span',
                     {
-                        class: 'recipes-grid__duration'
+                        class: 'recipes-card__duration'
                     },
                     elFactory(
                         'img',
                         {
                             src: './PNG/duration.png',
                             alt: 'Durée',
-                            class: 'recipes-grid__duration--icon'
+                            class: 'recipes-card__duration--icon'
                         }
                     ),
                     recipes[index].time + ' min'
@@ -1856,19 +1863,19 @@ function displayRecipesGrid () {
             elFactory(
                 'div',
                 {
-                    class: 'recipes-grid__body'
+                    class: 'recipes-card__body'
                 },
                 elFactory(
                     'div',
                     {
-                        class: 'recipes-grid__ingredients',
+                        class: 'recipes-card__ingredients',
                         id: 'recipe-' + recipes[index].id
                     }
                 ),
                 elFactory(
                     'div',
                     {
-                        class: 'recipes-grid__description'
+                        class: 'recipes-card__description'
                     },
                     recipes[index].description
                 )
@@ -1929,3 +1936,21 @@ function displaySearchbarMenus () {
         }
     }
 }
+
+// Algorithme de recherche
+const searchContent = mainSearchbar.value
+console.log(searchContent)
+
+function mainSearch (keyword) {
+    for (let index = 0; index < recipes.length; index++) {
+        const recipeCard = document.getElementById('recipe-card__' + recipes[index].id)
+        const recipeTitle = recipes[index].name
+        if (recipeTitle.includes(keyword)) {
+            recipeCard.style.display = 'block'
+        } else {
+            recipeCard.style.display = 'none'
+        }
+    }
+}
+
+mainSearchbarButton.addEventListener('click', mainSearch(searchContent))
