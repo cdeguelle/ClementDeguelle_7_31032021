@@ -74,7 +74,8 @@ header {
     border-bottom-right-radius: 5px;
     margin-right: 20px;
     padding: 0 0 15px 15px;
-    z-index: -1; }
+    z-index: 10;
+    position: absolute; }
   #secondary-green input {
     background: #68D9A4;
     border: #68D9A4; }
@@ -97,7 +98,8 @@ header {
     border-bottom-right-radius: 5px;
     margin-right: 20px;
     padding: 0 0 15px 15px;
-    z-index: -1; }
+    z-index: 10;
+    position: absolute; }
   #secondary-red input {
     background: #ED6454;
     border: #ED6454; }
@@ -120,7 +122,8 @@ header {
     border-bottom-right-radius: 5px;
     margin-right: 20px;
     padding: 0 0 15px 15px;
-    z-index: -1; }
+    z-index: 10;
+    position: absolute; }
 
 .item-menu {
   font-size: 1.1em;
@@ -157,7 +160,7 @@ header {
   margin: 20px; }
 
 .recipes-card__title {
-  font-size: 1.2em;
+  font-size: 1em;
   max-width: 250px; }
 
 .recipes-card__duration--icon {
@@ -166,7 +169,14 @@ header {
 .recipes-card__body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin: 20px; }
+  margin: 20px;
+  padding-right: 5px; }
+
+.recipes-card__ingredients {
+  font-size: 0.8em;
+  list-style: none; }
+  .recipes-card__ingredients--item {
+    margin-bottom: 5px; }
 
 .recipes-card__description {
   font-size: 0.8em;
