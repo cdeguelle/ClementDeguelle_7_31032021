@@ -1726,6 +1726,7 @@ const recipes = [
 ]
 
 // DOM Elements
+const mainSearchbar = document.getElementById('main__searchbar')
 const mainSearchbarButton = document.getElementById('main__button')
 const blueSearchbar = document.getElementById('secondary-blue__searchbar')
 const blueSearchbarButton = document.getElementById('secondary-blue__button')
@@ -1739,7 +1740,7 @@ const redSearchbarMenu = document.getElementById('secondary-red__menu')
 const recipesGrid = document.getElementById('recipes-grid')
 
 // Au chargement
-window.addEventListener('DOMContentLoaded', displayRecipesGrid)
+window.addEventListener('DOMContentLoaded', displayRecipesGrid(recipes))
 window.addEventListener('DOMContentLoaded', displaySearchbarMenus)
 
 // Menu bleu déroulant
@@ -1821,14 +1822,14 @@ function elFactory (type, attributes, ...children) {
 }
 
 // Remplissage dynamique de la grille de recettes
-function displayRecipesGrid () {
+function displayRecipesGrid (array) {
     recipesGrid.innerHTML = ''
     for (let index = 0; index < recipes.length; index++) {
         const articleElement = elFactory(
             'article',
             {
                 class: 'recipes-card__item',
-                id: 'recipe-card__' + recipes[index].id
+                id: 'recipe-card__' + array[index].id
             },
             elFactory(
                 'div',
@@ -1845,9 +1846,9 @@ function displayRecipesGrid () {
                     'h2',
                     {
                         class: 'recipes-card__title',
-                        id: 'recipe-card__title--' + recipes[index].id
+                        id: 'recipe-card__title--' + array[index].id
                     },
-                    recipes[index].name
+                    array[index].name
                 ),
                 elFactory(
                     'span',
@@ -1862,7 +1863,7 @@ function displayRecipesGrid () {
                             class: 'recipes-card__duration--icon'
                         }
                     ),
-                    recipes[index].time + ' min'
+                    array[index].time + ' min'
                 )
             ),
             elFactory(
@@ -1874,7 +1875,7 @@ function displayRecipesGrid () {
                     'ul',
                     {
                         class: 'recipes-card__ingredients',
-                        id: 'recipe-' + recipes[index].id
+                        id: 'recipe-' + array[index].id
                     }
                 ),
                 elFactory(
@@ -1882,38 +1883,38 @@ function displayRecipesGrid () {
                     {
                         class: 'recipes-card__description'
                     },
-                    recipes[index].description
+                    array[index].description
                 )
             )
         )
         recipesGrid.appendChild(articleElement)
-        const ingredientsBox = document.getElementById('recipe-' + recipes[index].id)
-        for (let i = 0; i < recipes[index].ingredients.length; i++) {
-            if (recipes[index].ingredients[i].hasOwnProperty('quantity') && recipes[index].ingredients[i].hasOwnProperty('unit')) {
+        const ingredientsBox = document.getElementById('recipe-' + array[index].id)
+        for (let i = 0; i < array[index].ingredients.length; i++) {
+            if (array[index].ingredients[i].hasOwnProperty('quantity') && array[index].ingredients[i].hasOwnProperty('unit')) {
                 const ingredientItem = elFactory(
                     'li',
                     {
                         class: 'recipes-card__ingredients--item'
                     },
-                    recipes[index].ingredients[i].ingredient + ': ' + recipes[index].ingredients[i].quantity + recipes[index].ingredients[i].unit
+                    array[index].ingredients[i].ingredient + ': ' + array[index].ingredients[i].quantity + array[index].ingredients[i].unit
                 )
                 ingredientsBox.appendChild(ingredientItem)
-            } else if (!recipes[index].ingredients[i].hasOwnProperty('unit') && recipes[index].ingredients[i].hasOwnProperty('quantity')) {
+            } else if (!array[index].ingredients[i].hasOwnProperty('unit') && array[index].ingredients[i].hasOwnProperty('quantity')) {
                 const ingredientItem = elFactory(
                     'li',
                     {
                         class: 'recipes-card__ingredients--item'
                     },
-                    recipes[index].ingredients[i].ingredient + ': ' + recipes[index].ingredients[i].quantity
+                    array[index].ingredients[i].ingredient + ': ' + array[index].ingredients[i].quantity
                 )
                 ingredientsBox.appendChild(ingredientItem)
-            } else if (!recipes[index].ingredients[i].hasOwnProperty('quantity')) {
+            } else if (!array[index].ingredients[i].hasOwnProperty('quantity')) {
                 const ingredientItem = elFactory(
                     'li',
                     {
                         class: 'recipes-card__ingredients--item'
                     },
-                    recipes[index].ingredients[i].ingredient
+                    array[index].ingredients[i].ingredient
                 )
                 ingredientsBox.appendChild(ingredientItem)
             }
@@ -1986,19 +1987,26 @@ function displaySearchbarMenus () {
 }
 
 // Algorithme de recherche
-function mainSearch () {
-    const mainSearchbar = document.getElementById('main__searchbar')
-    const searchContent = mainSearchbar.value
-    console.log(searchContent)
-    for (let index = 0; index < recipes.length; index++) {
-        const recipeCard = document.getElementById('recipe-card__' + recipes[index].id)
-        const recipeTitle = recipes[index].name
-        if (recipeTitle.includes(searchContent)) {
-            recipeCard.style.display = 'block'
-        } else {
-            recipeCard.style.display = 'none'
-        }
-    }
-}
+mainSearchbar.addEventListener('input', e => {
+    const input = e.target.value.toLowerCase()
+    const newRecipesList = recipes.filter(recipe => recipe.name.toLowerCase().includes(input))
+    displayRecipesGrid(newRecipesList)
+})
 
-mainSearchbarButton.addEventListener('click', mainSearch)
+mainSearchbar.addEventListener('input', e => {
+    const input = e.target.value.toLowerCase()
+    const newIngList = recipes.filter(recipe => recipe.ingredients.toLowerCase().includes(input))
+    displayRecipesGrid(newIngList)
+})
+
+mainSearchbar.addEventListener('input', e => {
+    const input = e.target.value.toLowerCase()
+    const newAppList = recipes.filter(recipe => recipe.appliance.toLowerCase().includes(input))
+    displayRecipesGrid(newAppList)
+})
+
+mainSearchbar.addEventListener('input', e => {
+    const input = e.target.value.toLowerCase()
+    const newUstList = recipes.filter(recipe => recipe.ustensils.toLowerCase().includes(input))
+    displayRecipesGrid(newUstList)
+})
