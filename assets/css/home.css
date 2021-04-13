@@ -54,7 +54,8 @@ header {
       opacity: 1; }
   #secondary-blue input {
     background-color: #3282F7;
-    border: #3282F7; }
+    border: #3282F7;
+    color: #ffffff; }
   #secondary-blue button {
     background-color: #3282F7;
     border: #3282F7;
@@ -78,7 +79,8 @@ header {
     position: absolute; }
   #secondary-green input {
     background: #68D9A4;
-    border: #68D9A4; }
+    border: #68D9A4;
+    color: #ffffff; }
   #secondary-green button {
     background: #68D9A4;
     border: #68D9A4;
@@ -102,7 +104,8 @@ header {
     position: absolute; }
   #secondary-red input {
     background: #ED6454;
-    border: #ED6454; }
+    border: #ED6454;
+    color: #ffffff; }
   #secondary-red button {
     background: #ED6454;
     border: #ED6454;
@@ -125,11 +128,15 @@ header {
     z-index: 10;
     position: absolute; }
 
-.item-menu {
+.item__menu {
   font-size: 1.1em;
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis; }
+  text-overflow: ellipsis;
+  cursor: pointer; }
+  .item__menu a {
+    text-decoration: none;
+    color: #ffffff; }
 
 * {
   margin: 0;

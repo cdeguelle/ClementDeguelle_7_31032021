@@ -60,6 +60,7 @@ header {
         & input {
             background-color: #3282F7;
             border: #3282F7;
+            color: #ffffff;
         }
         & button {
             background-color: #3282F7;
@@ -77,6 +78,7 @@ header {
         & input {
             background: #68D9A4;
             border: #68D9A4;
+            color: #ffffff;
         }
         & button {
             background: #68D9A4;
@@ -94,6 +96,7 @@ header {
         & input {
             background: #ED6454;
             border: #ED6454;
+            color: #ffffff;
         }
         & button {
             background: #ED6454;
@@ -109,9 +112,15 @@ header {
     }
 }
 
-.item-menu {
+.item__menu {
     font-size: 1.1em;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    cursor: pointer;
+    
+    & a {
+        text-decoration: none;
+        color: #ffffff;
+    }
 }
