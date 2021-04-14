@@ -132,11 +132,11 @@ header {
   font-size: 1.1em;
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
-  cursor: pointer; }
+  text-overflow: ellipsis; }
   .item__menu a {
     text-decoration: none;
-    color: #ffffff; }
+    color: #ffffff;
+    cursor: pointer; }
 
 * {
   margin: 0;

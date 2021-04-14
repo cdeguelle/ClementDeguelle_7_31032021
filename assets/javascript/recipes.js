@@ -1741,7 +1741,6 @@ const recipesGrid = document.getElementById('recipes-grid')
 
 // Au chargement
 window.addEventListener('DOMContentLoaded', displayRecipesGrid(recipes))
-window.addEventListener('DOMContentLoaded', displaySearchbarMenus)
 
 // Menu bleu déroulant
 function toggleBlueNavbar () {
@@ -1824,7 +1823,7 @@ function elFactory (type, attributes, ...children) {
 // Remplissage dynamique de la grille de recettes
 function displayRecipesGrid (array) {
     recipesGrid.innerHTML = ''
-    for (let index = 0; index < recipes.length; index++) {
+    for (let index = 0; index < array.length; index++) {
         const articleElement = elFactory(
             'article',
             {
@@ -1922,6 +1921,42 @@ function displayRecipesGrid (array) {
     }
 }
 
+// Algorithme de recherche mainSearch
+// Recettes
+mainSearchbar.addEventListener('input', e => {
+    const input = e.target.value.toLowerCase()
+    if (input.length >= 3) {
+        const newRecipesList = recipes.filter(recipe => recipe.name.toLowerCase().includes(input) || recipe.description.toLowerCase().includes(input)/*  || recipe.ingredients.forEach(ing => ing.ingredient.toLowerCase().includes(input)) */)
+        const ingArrSearch = []
+        const appArrSearch = []
+        const ustArrSearch = []
+        for (let index = 0; index < newRecipesList.length; index++) {
+            for (let i = 0; i < newRecipesList[index].ingredients.length; i++) {
+                ingArrSearch.push(newRecipesList[index].ingredients[i].ingredient)
+            }
+        }
+        const setIngArrSearch = new Set(ingArrSearch)
+        const ingArraySearch = [...setIngArrSearch]
+        for (let index = 0; index < newRecipesList.length; index++) {
+            appArrSearch.push(newRecipesList[index].appliance)
+        }
+        const setAppArrSearch = new Set(appArrSearch)
+        const appArraySearch = [...setAppArrSearch]
+        for (let index = 0; index < newRecipesList.length; index++) {
+            for (let i = 0; i < newRecipesList[index].ustensils.length; i++) {
+                ustArrSearch.push(newRecipesList[index].ustensils[i])
+            }
+        }
+        const setUstArrSearch = new Set(ustArrSearch)
+        const ustArraySearch = [...setUstArrSearch]
+        displayRecipesGrid(newRecipesList)
+        displaySearchbarMenus(ingArraySearch, appArraySearch, ustArraySearch)
+    } else {
+        displayRecipesGrid(recipes)
+        displaySearchbarMenus(ingArray, appArray, ustArray)
+    }
+})
+
 // Contenu des barres de recherches secondaires
 // Création de tableaux pour supprimer les doublons
 const ingArr = []
@@ -1949,10 +1984,12 @@ for (let index = 0; index < recipes.length; index++) {
 const setUstArr = new Set(ustArr)
 const ustArray = [...setUstArr]
 
+window.addEventListener('DOMContentLoaded', displaySearchbarMenus(ingArray, appArray, ustArray))
+
 // Lecture des nouveaux tableaux
-function displaySearchbarMenus () {
+function displaySearchbarMenus (arrayBlue, arrayGreen, arrayRed) {
     blueSearchbarMenu.innerHTML = ''
-    for (let index = 0; index < ingArray.length; index++) {
+    for (let index = 0; index < arrayBlue.length; index++) {
         const ingredientList = elFactory(
             'li',
             {
@@ -1961,55 +1998,51 @@ function displaySearchbarMenus () {
             elFactory(
                 'a',
                 {
-                    class: 'blue-item',
+                    class: 'item__link blue-item',
                     href: '#'
                 },
-                ingArray[index]
+                arrayBlue[index]
             )
         )
         blueSearchbarMenu.appendChild(ingredientList)
     }
     greenSearchbarMenu.innerHTML = ''
-    for (let index = 0; index < appArray.length; index++) {
+    for (let index = 0; index < arrayGreen.length; index++) {
         const applianceList = elFactory(
             'li',
             {
-                class: 'item__menu green-item'
+                class: 'item__menu'
             },
-            appArray[index]
+            elFactory(
+                'a',
+                {
+                    class: 'item__link green-item',
+                    href: '#'
+                },
+                arrayGreen[index]
+            )
         )
         greenSearchbarMenu.appendChild(applianceList)
     }
     redSearchbarMenu.innerHTML = ''
-    for (let index = 0; index < ustArray.length; index++) {
+    for (let index = 0; index < arrayRed.length; index++) {
         const ustensilList = elFactory(
             'li',
             {
-                class: 'item__menu red-item'
+                class: 'item__menu'
             },
-            ustArray[index]
+            elFactory(
+                'a',
+                {
+                    class: 'item__link red-item',
+                    href: '#'
+                },
+                arrayRed[index]
+            )
         )
         redSearchbarMenu.appendChild(ustensilList)
     }
 }
-
-// Création des tags
-document.querySelectorAll('.item-menu').forEach(item => item.addEventListener('click', e => {
-    e.preventDefault()
-    const classItem = item.classList
-    console.log(classItem)
-    const contentItem = item.content
-    if (classItem.includes('blue-item')) {
-        const blueTag = elFactory(
-            'div',
-            {
-                class: 'blue-tag'
-            },
-            contentItem
-        )
-        blueSearchbar.appendChild(blueTag)
-    }
-}))
 
 // Algorithme de recherche secondarySearch
 // Blue
@@ -2108,36 +2141,38 @@ redSearchbar.addEventListener('input', e => {
     }
 })
 
-// Algorithme de recherche mainSearch
-// Recettes
-mainSearchbar.addEventListener('input', e => {
-    const input = e.target.value.toLowerCase()
-    if (input.length >= 3) {
-        const newRecipesList = recipes.filter(recipe => recipe.name.toLowerCase().includes(input))
-        displayRecipesGrid(newRecipesList)
-    } else {
-        displayRecipesGrid(recipes)
-    }
-})
+// Création des tags
+document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', makeATag(item)))
 
-// Description
-mainSearchbar.addEventListener('input', e => {
-    const input = e.target.value.toLowerCase()
-    if (input.length >= 3) {
-        const newRecipesList = recipes.filter(recipe => recipe.description.toLowerCase().includes(input))
-        displayRecipesGrid(newRecipesList)
-    } else {
-        displayRecipesGrid(recipes)
+function makeATag (item) {
+    const classItem = item.classList
+    const contentItem = item.textContent
+    if (classItem.contains('blue-item')) {
+        const blueTag = elFactory(
+            'div',
+            {
+                class: 'tag tag__blue'
+            },
+            contentItem
+        )
+        mainSearchbar.appendChild(blueTag)
+    } else if (classItem.contains('green-item')) {
+        const greenTag = elFactory(
+            'div',
+            {
+                class: 'tag tag__green'
+            },
+            contentItem
+        )
+        mainSearchbar.appendChild(greenTag)
+    } else if (classItem.contains('red-item')) {
+        const redTag = elFactory(
+            'div',
+            {
+                class: 'tag tag__red'
+            },
+            contentItem
+        )
+        mainSearchbar.appendChild(redTag)
     }
-})
-
-// Ingredients
-/* mainSearchbar.addEventListener('input', e => {
-    const input = e.target.value.toLowerCase()
-    if (input.length >= 3) {
-        const newRecipesList = recipes.filter(recipe => recipe.ingredients.forEach(ing => ing.ingredient.toLowerCase().includes(input)))
-        displayRecipesGrid(newRecipesList)
-    } else {
-        displayRecipesGrid(recipes)
-    }
-}) */
+}
