@@ -22,6 +22,7 @@ header {
 
 #main {
     display: flex;
+    flex-direction: column;
     margin: 20px 100px;
     &__searchbar {
         width: 100%;
@@ -32,9 +33,10 @@ header {
         padding-left: 20px;
     }
     &__button {
+        position: absolute;
         height: 60px;
         background-color: #E7E7E7;
-        margin-left: -50px;
+        right: 120px;
         margin-top: 5px;
         border: none;
         cursor: pointer;
@@ -120,6 +122,32 @@ header {
     & a {
         text-decoration: none;
         color: #ffffff;
+        cursor: pointer;
+    }
+}
+
+#tag-container {
+    display: flex;
+}
+
+.tag {
+    display: flex;
+    margin: 15px 15px 0 0;
+    padding: 8px;
+    border-radius: 5px;
+    color: #ffffff;
+    max-width: 250px;
+    &__blue {
+        background-color: #3282F7;
+    }
+    &__green {
+        background-color: #68D9A4;
+    }
+    &__red {
+        background-color: #ED6454;
+    }
+    &__close {
+        margin-left: 10px;
         cursor: pointer;
     }
 }

@@ -1727,7 +1727,7 @@ const recipes = [
 
 // DOM Elements
 const mainSearchbar = document.getElementById('main__searchbar')
-/* const mainSearchbarButton = document.getElementById('main__button') */
+const tagContainer = document.getElementById('tag-container')
 const blueSearchbar = document.getElementById('secondary-blue__searchbar')
 const blueSearchbarButton = document.getElementById('secondary-blue__button')
 const blueSearchbarMenu = document.getElementById('secondary-blue__menu')
@@ -1923,10 +1923,23 @@ function displayRecipesGrid (array) {
 
 // Algorithme de recherche mainSearch
 // Recettes
+function filterIngredients (recipe, input) {
+    if (recipe.name.toLowerCase().includes(input) || recipe.description.toLowerCase().includes(input)) {
+        return true
+    }
+    for (let index = 0; index < recipe.ingredients.length; index++) {
+        const element = recipe.ingredients[index]
+        if (element.ingredient.toLowerCase().includes(input)) {
+            return true
+        }
+    }
+    return false
+}
+
 mainSearchbar.addEventListener('input', e => {
     const input = e.target.value.toLowerCase()
     if (input.length >= 3) {
-        const newRecipesList = recipes.filter(recipe => recipe.name.toLowerCase().includes(input) || recipe.description.toLowerCase().includes(input)/*  || recipe.ingredients.forEach(ing => ing.ingredient.toLowerCase().includes(input)) */)
+        const newRecipesList = recipes.filter(recipe => filterIngredients(recipe, input))
         const ingArrSearch = []
         const appArrSearch = []
         const ustArrSearch = []
@@ -2142,7 +2155,7 @@ redSearchbar.addEventListener('input', e => {
 })
 
 // Création des tags
-document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', makeATag(item)))
+document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
 
 function makeATag (item) {
     const classItem = item.classList
@@ -2153,26 +2166,55 @@ function makeATag (item) {
             {
                 class: 'tag tag__blue'
             },
-            contentItem
+            contentItem,
+            elFactory(
+                'img',
+                {
+                    class: 'tag__close',
+                    src: './PNG/close_tag.png'
+                }
+            )
         )
-        mainSearchbar.appendChild(blueTag)
+        tagContainer.appendChild(blueTag)
     } else if (classItem.contains('green-item')) {
         const greenTag = elFactory(
             'div',
             {
                 class: 'tag tag__green'
             },
-            contentItem
+            contentItem,
+            elFactory(
+                'img',
+                {
+                    class: 'tag__close',
+                    src: './PNG/close_tag.png'
+                }
+            )
         )
-        mainSearchbar.appendChild(greenTag)
+        tagContainer.appendChild(greenTag)
     } else if (classItem.contains('red-item')) {
         const redTag = elFactory(
             'div',
             {
                 class: 'tag tag__red'
             },
-            contentItem
+            contentItem,
+            elFactory(
+                'img',
+                {
+                    class: 'tag__close',
+                    src: './PNG/close_tag.png'
+                }
+            )
         )
-        mainSearchbar.appendChild(redTag)
+        tagContainer.appendChild(redTag)
     }
+}
+
+// Suppression des tags
+document.querySelectorAll('.tag__close').forEach(item => item.addEventListener('click', () => removeATag(item)))
+
+function removeATag (item) {
+    const tag = item.parentNode
+    tag.remove()
 }
