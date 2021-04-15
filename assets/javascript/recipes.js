@@ -2179,9 +2179,8 @@ document.querySelectorAll('.item__link').forEach(item => item.addEventListener('
 
 function makeATag (item) {
     const classItem = item.classList
-    const contentItem = item.textContent
+    const contentItem = item.textContent.toLowerCase()
     const newRecipesList = recipes.filter(recipe => filterSecondarySearch(recipe, contentItem))
-    console.log(newRecipesList)
     displayRecipesGrid(newRecipesList)
     if (classItem.contains('blue-item')) {
         const blueTag = elFactory(
@@ -2257,4 +2256,14 @@ function makeATag (item) {
 function removeATag (item) {
     const tag = item.parentNode
     tag.remove()
+    const tags = document.querySelectorAll('.tag')
+    if (tags.length !== 0) {
+        for (let index = 0; index < tags.length; index++) {
+            const tagContent = tags[index].textContent.toLowerCase()
+            const newRecipesList = recipes.filter(recipe => filterSecondarySearch(recipe, tagContent))
+            displayRecipesGrid(newRecipesList)
+        }
+    } else {
+        displayRecipesGrid(recipes)
+    }
 }
