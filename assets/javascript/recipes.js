@@ -1923,7 +1923,7 @@ function displayRecipesGrid (array) {
 
 // Algorithme de recherche mainSearch
 // Recettes
-function filterIngredients (recipe, input) {
+function filterMainSearch (recipe, input) {
     if (recipe.name.toLowerCase().includes(input) || recipe.description.toLowerCase().includes(input)) {
         return true
     }
@@ -1939,7 +1939,7 @@ function filterIngredients (recipe, input) {
 mainSearchbar.addEventListener('input', e => {
     const input = e.target.value.toLowerCase()
     if (input.length >= 3) {
-        const newRecipesList = recipes.filter(recipe => filterIngredients(recipe, input))
+        const newRecipesList = recipes.filter(recipe => filterMainSearch(recipe, input))
         const ingArrSearch = []
         const appArrSearch = []
         const ustArrSearch = []
@@ -2154,12 +2154,35 @@ redSearchbar.addEventListener('input', e => {
     }
 })
 
+// Filtre des tags
+function filterSecondarySearch (recipe, input) {
+    if (recipe.appliance.toLowerCase().includes(input)) {
+        return true
+    }
+    for (let index = 0; index < recipe.ingredients.length; index++) {
+        const element = recipe.ingredients[index]
+        if (element.ingredient.toLowerCase().includes(input)) {
+            return true
+        }
+    }
+    for (let index = 0; index < recipe.ustensils.length; index++) {
+        const element = recipe.ustensils[index]
+        if (element.toLowerCase().includes(input)) {
+            return true
+        }
+    }
+    return false
+}
+
 // Création des tags
 document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
 
 function makeATag (item) {
     const classItem = item.classList
     const contentItem = item.textContent
+    const newRecipesList = recipes.filter(recipe => filterSecondarySearch(recipe, contentItem))
+    console.log(newRecipesList)
+    displayRecipesGrid(newRecipesList)
     if (classItem.contains('blue-item')) {
         const blueTag = elFactory(
             'div',
@@ -2168,11 +2191,17 @@ function makeATag (item) {
             },
             contentItem,
             elFactory(
-                'img',
+                'button',
                 {
-                    class: 'tag__close',
-                    src: './PNG/close_tag.png'
-                }
+                    class: 'tag__close'
+                },
+                elFactory(
+                    'img',
+                    {
+                        class: 'tag__close--img',
+                        src: './PNG/close_tag.png'
+                    }
+                )
             )
         )
         tagContainer.appendChild(blueTag)
@@ -2184,11 +2213,17 @@ function makeATag (item) {
             },
             contentItem,
             elFactory(
-                'img',
+                'button',
                 {
-                    class: 'tag__close',
-                    src: './PNG/close_tag.png'
-                }
+                    class: 'tag__close'
+                },
+                elFactory(
+                    'img',
+                    {
+                        class: 'tag__close--img',
+                        src: './PNG/close_tag.png'
+                    }
+                )
             )
         )
         tagContainer.appendChild(greenTag)
@@ -2200,20 +2235,25 @@ function makeATag (item) {
             },
             contentItem,
             elFactory(
-                'img',
+                'button',
                 {
-                    class: 'tag__close',
-                    src: './PNG/close_tag.png'
-                }
+                    class: 'tag__close'
+                },
+                elFactory(
+                    'img',
+                    {
+                        class: 'tag__close--img',
+                        src: './PNG/close_tag.png'
+                    }
+                )
             )
         )
         tagContainer.appendChild(redTag)
     }
+    document.querySelectorAll('.tag__close').forEach(item => item.addEventListener('click', () => removeATag(item)))
 }
 
 // Suppression des tags
-document.querySelectorAll('.tag__close').forEach(item => item.addEventListener('click', () => removeATag(item)))
-
 function removeATag (item) {
     const tag = item.parentNode
     tag.remove()

@@ -149,5 +149,7 @@ header {
     &__close {
         margin-left: 10px;
         cursor: pointer;
+        background-color: transparent;
+        border: none;
     }
 }
