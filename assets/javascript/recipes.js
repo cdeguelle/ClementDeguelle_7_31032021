@@ -2055,6 +2055,7 @@ function displaySearchbarMenus (arrayBlue, arrayGreen, arrayRed) {
         )
         redSearchbarMenu.appendChild(ustensilList)
     }
+    document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
 }
 
 // Algorithme de recherche secondarySearch
@@ -2155,19 +2156,19 @@ redSearchbar.addEventListener('input', e => {
 })
 
 // Filtre des tags
-function filterSecondarySearch (recipe, input) {
-    if (recipe.appliance.toLowerCase().includes(input)) {
+function filterSecondarySearch (recipe, array) {
+    if (recipe.appliance.toLowerCase().includes(...array)) {
         return true
     }
     for (let index = 0; index < recipe.ingredients.length; index++) {
         const element = recipe.ingredients[index]
-        if (element.ingredient.toLowerCase().includes(input)) {
+        if (element.ingredient.toLowerCase().includes(...array)) {
             return true
         }
     }
     for (let index = 0; index < recipe.ustensils.length; index++) {
         const element = recipe.ustensils[index]
-        if (element.toLowerCase().includes(input)) {
+        if (element.toLowerCase().includes(...array)) {
             return true
         }
     }
@@ -2175,13 +2176,9 @@ function filterSecondarySearch (recipe, input) {
 }
 
 // Création des tags
-document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
-
 function makeATag (item) {
     const classItem = item.classList
     const contentItem = item.textContent.toLowerCase()
-    const newRecipesList = recipes.filter(recipe => filterSecondarySearch(recipe, contentItem))
-    displayRecipesGrid(newRecipesList)
     if (classItem.contains('blue-item')) {
         const blueTag = elFactory(
             'div',
@@ -2249,6 +2246,36 @@ function makeATag (item) {
         )
         tagContainer.appendChild(redTag)
     }
+    const tags = document.querySelectorAll('.tag')
+    const tagContent = []
+    for (let index = 0; index < tags.length; index++) {
+        tagContent.push(tags[index].textContent.toLowerCase())
+    }
+    const newRecipesList = recipes.filter(recipe => filterSecondarySearch(recipe, tagContent))
+    const ingArrTag = []
+    const appArrTag = []
+    const ustArrTag = []
+    for (let index = 0; index < newRecipesList.length; index++) {
+        for (let i = 0; i < newRecipesList[index].ingredients.length; i++) {
+            ingArrTag.push(newRecipesList[index].ingredients[i].ingredient)
+        }
+    }
+    const setIngArrTag = new Set(ingArrTag)
+    const ingArrayTag = [...setIngArrTag]
+    for (let index = 0; index < newRecipesList.length; index++) {
+        appArrTag.push(newRecipesList[index].appliance)
+    }
+    const setAppArrTag = new Set(appArrTag)
+    const appArrayTag = [...setAppArrTag]
+    for (let index = 0; index < newRecipesList.length; index++) {
+        for (let i = 0; i < newRecipesList[index].ustensils.length; i++) {
+            ustArrTag.push(newRecipesList[index].ustensils[i])
+        }
+    }
+    const setUstArrTag = new Set(ustArrTag)
+    const ustArrayTag = [...setUstArrTag]
+    displaySearchbarMenus(ingArrayTag, appArrayTag, ustArrayTag)
+    displayRecipesGrid(newRecipesList)
     document.querySelectorAll('.tag__close').forEach(item => item.addEventListener('click', () => removeATag(item)))
 }
 
@@ -2257,13 +2284,38 @@ function removeATag (item) {
     const tag = item.parentNode
     tag.remove()
     const tags = document.querySelectorAll('.tag')
+    const tagContent = []
     if (tags.length !== 0) {
         for (let index = 0; index < tags.length; index++) {
-            const tagContent = tags[index].textContent.toLowerCase()
-            const newRecipesList = recipes.filter(recipe => filterSecondarySearch(recipe, tagContent))
-            displayRecipesGrid(newRecipesList)
+            tagContent.push(tags[index].textContent.toLowerCase())
         }
+        const newRecipesList = recipes.filter(recipe => filterSecondarySearch(recipe, tagContent))
+        const ingArrTag = []
+        const appArrTag = []
+        const ustArrTag = []
+        for (let index = 0; index < newRecipesList.length; index++) {
+            for (let i = 0; i < newRecipesList[index].ingredients.length; i++) {
+                ingArrTag.push(newRecipesList[index].ingredients[i].ingredient)
+            }
+        }
+        const setIngArrTag = new Set(ingArrTag)
+        const ingArrayTag = [...setIngArrTag]
+        for (let index = 0; index < newRecipesList.length; index++) {
+            appArrTag.push(newRecipesList[index].appliance)
+        }
+        const setAppArrTag = new Set(appArrTag)
+        const appArrayTag = [...setAppArrTag]
+        for (let index = 0; index < newRecipesList.length; index++) {
+            for (let i = 0; i < newRecipesList[index].ustensils.length; i++) {
+                ustArrTag.push(newRecipesList[index].ustensils[i])
+            }
+        }
+        const setUstArrTag = new Set(ustArrTag)
+        const ustArrayTag = [...setUstArrTag]
+        displaySearchbarMenus(ingArrayTag, appArrayTag, ustArrayTag)
+        displayRecipesGrid(newRecipesList)
     } else {
         displayRecipesGrid(recipes)
+        displaySearchbarMenus(ingArray, appArray, ustArray)
     }
 }
