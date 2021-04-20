@@ -2303,12 +2303,10 @@ function makeATag (item) {
         } else if (classTag.contains('tag__red')) {
             redTagContent.push(tags[index].textContent)
         }
-        console.log(blueTagContent)
-        console.log(greenTagContent)
-        console.log(redTagContent)
     }
-    const newRecipesList = recipes.filter(recipe => filterSecondarySearch(recipe, blueTagContent, greenTagContent, redTagContent))
-    console.log(newRecipesList)
+    const input = mainSearchbar.value.toLowerCase()
+    const mainList = recipes.filter(recipe => filterMainSearch(recipe, input))
+    const newRecipesList = mainList.filter(recipe => filterSecondarySearch(recipe, blueTagContent, greenTagContent, redTagContent))
     const ingArrTag = []
     const appArrTag = []
     const ustArrTag = []
@@ -2381,7 +2379,31 @@ function removeATag (item) {
         displaySearchbarMenus(ingArrayTag, appArrayTag, ustArrayTag)
         displayRecipesGrid(newRecipesList)
     } else {
-        displayRecipesGrid(recipes)
-        displaySearchbarMenus(ingArray, appArray, ustArray)
+        const input = mainSearchbar.value.toLowerCase()
+        const mainList = recipes.filter(recipe => filterMainSearch(recipe, input))
+        const ingArrTag = []
+        const appArrTag = []
+        const ustArrTag = []
+        for (let index = 0; index < mainList.length; index++) {
+            for (let i = 0; i < mainList[index].ingredients.length; i++) {
+                ingArrTag.push(mainList[index].ingredients[i].ingredient)
+            }
+        }
+        const setIngArrTag = new Set(ingArrTag)
+        const ingArrayTag = [...setIngArrTag]
+        for (let index = 0; index < mainList.length; index++) {
+            appArrTag.push(mainList[index].appliance)
+        }
+        const setAppArrTag = new Set(appArrTag)
+        const appArrayTag = [...setAppArrTag]
+        for (let index = 0; index < mainList.length; index++) {
+            for (let i = 0; i < mainList[index].ustensils.length; i++) {
+                ustArrTag.push(mainList[index].ustensils[i])
+            }
+        }
+        const setUstArrTag = new Set(ustArrTag)
+        const ustArrayTag = [...setUstArrTag]
+        displayRecipesGrid(mainList)
+        displaySearchbarMenus(ingArrayTag, appArrayTag, ustArrayTag)
     }
 }
