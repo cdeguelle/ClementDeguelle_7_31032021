@@ -1738,6 +1738,7 @@ const redSearchbar = document.getElementById('secondary-red__searchbar')
 const redSearchbarButton = document.getElementById('secondary-red__button')
 const redSearchbarMenu = document.getElementById('secondary-red__menu')
 const recipesGrid = document.getElementById('recipes-grid')
+const noResults = document.getElementById('no-result')
 
 // Au chargement
 window.addEventListener('DOMContentLoaded', displayRecipesGrid(recipes))
@@ -1964,6 +1965,11 @@ mainSearchbar.addEventListener('input', e => {
         const ustArraySearch = [...setUstArrSearch]
         displayRecipesGrid(newRecipesList)
         displaySearchbarMenus(ingArraySearch, appArraySearch, ustArraySearch)
+        if (recipesGrid.childElementCount === 0) {
+            noResults.style.display = 'flex'
+        } else {
+            noResults.style.display = 'none'
+        }
     } else {
         displayRecipesGrid(recipes)
         displaySearchbarMenus(ingArray, appArray, ustArray)
@@ -2353,7 +2359,9 @@ function removeATag (item) {
                 redTagContent.push(tags[index].textContent.toLowerCase())
             }
         }
-        const newRecipesList = recipes.filter(recipe => filterSecondarySearch(recipe, blueTagContent, greenTagContent, redTagContent))
+        const input = mainSearchbar.value.toLowerCase()
+        const mainList = recipes.filter(recipe => filterMainSearch(recipe, input))
+        const newRecipesList = mainList.filter(recipe => filterSecondarySearch(recipe, blueTagContent, greenTagContent, redTagContent))
         const ingArrTag = []
         const appArrTag = []
         const ustArrTag = []
