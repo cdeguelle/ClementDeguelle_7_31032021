@@ -30,9 +30,9 @@ const recipes = [
             }
         ],
         time: 10,
-        description: "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée",
+        description: "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la Crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée",
         appliance: 'Blender',
-        ustensils: ['cuillère à Soupe', 'verres', 'presse citron']
+        ustensils: ['Cuillère à soupe', 'verres', 'presse citron']
     },
     {
         id: 2,
@@ -102,7 +102,7 @@ const recipes = [
             }
         ],
         time: 80,
-        description: "Découper le poulet en morceaux, les faire dorer dans une Cocotte avec de l'huile d'olive. Salez et poivrez. Une fois doré, laisser cuire en ajoutant de l'eau. Au bout de 30 minutes, ajouter le coulis de tomate, le lait de coco ainsi que le poivron et l'oignon découpés en morceaux. Laisser cuisiner 30 minutes de plus. Servir avec du riz",
+        description: "Découper le poulet en morceaux, les faire dorer dans une Cocotte avec de l'Huile d'olive. Salez et poivrez. Une fois doré, laisser cuire en ajoutant de l'eau. Au bout de 30 minutes, ajouter le coulis de tomate, le lait de coco ainsi que le poivron et l'oignon découpés en morceaux. Laisser cuisiner 30 minutes de plus. Servir avec du riz",
         appliance: 'Cocotte',
         ustensils: ['Couteau']
     }, {
@@ -178,7 +178,7 @@ const recipes = [
             }
         ],
         time: 45,
-        description: 'Etaler la pâte feuilleté aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de crème fraiche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes',
+        description: 'Etaler la pâte feuilleté aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de Crème fraiche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes',
         appliance: 'Four',
         ustensils: ['moule à tarte', 'râpe à fromage', 'Couteau']
     },
@@ -217,7 +217,7 @@ const recipes = [
             }
         ],
         time: 50,
-        description: "Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la crème fraiche aux oeufs. Une fois que tout est pret, étalez la tarte dans le moule. N'oubliez pas de piquer le fond avec une fourchette avant depositionner les pommes sur la tarte. Finallement verser la préparation à base d'oeufs et de crème fraiche. Laisser cuire au four pendant 30 minutes",
+        description: "Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la Crème fraiche aux oeufs. Une fois que tout est pret, étalez la tarte dans le moule. N'oubliez pas de piquer le fond avec une fourchette avant depositionner les pommes sur la tarte. Finallement verser la préparation à base d'oeufs et de Crème fraiche. Laisser cuire au four pendant 30 minutes",
         appliance: 'Four',
         ustensils: ['moule à tarte', 'saladier', 'fourchette']
     }, {
@@ -250,7 +250,7 @@ const recipes = [
             }
         ],
         time: 50,
-        description: "Etaler la pate dans les moules à tartelette. Faire cuire la pate 30 minutes. Découper le chocolat en morceau et le faire chauffer, y ajouter la crème liquide, ajouter le beurre et remuer jusqu'à avoir une pâte homogène. Verser la pate sur les tartelettes. Couper les fraises en 2 et les positionner sur ",
+        description: "Etaler la pate dans les moules à tartelette. Faire cuire la pate 30 minutes. Découper le chocolat en morceau et le faire chauffer, y ajouter la Crème liquide, ajouter le beurre et remuer jusqu'à avoir une pâte homogène. Verser la pate sur les tartelettes. Couper les fraises en 2 et les positionner sur ",
         appliance: 'Four',
         ustensils: ['moule à tartelettes (6)', 'casserolle']
     }, {
@@ -322,7 +322,7 @@ const recipes = [
             }
         ],
         time: 15,
-        description: "Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamic et l'huile d'olives à votre gout.",
+        description: "Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamic et l'Huile d'olive à votre gout.",
         appliance: 'Saladier',
         ustensils: ['cuillère en bois', 'Couteau']
     },
@@ -451,16 +451,16 @@ const recipes = [
             {
                 ingredient: 'Vinaigre de cidre',
                 quantity: 1,
-                unit: 'cuillère à soupe'
+                unit: 'Cuillère à soupe'
             },
             {
-                ingredient: "huile d'olive",
+                ingredient: "Huile d'olive",
                 quantity: 2,
-                unit: 'cuillère à soupe'
+                unit: 'Cuillère à soupe'
             }
         ],
         time: 40,
-        description: "Cuire les pommes de terre environ 30 minutes. Découper les échalottes finement. Durant la cuisson des pommes de terre. Préparez la vinaigrette avec l'huile d'olive et le vinaigre de cidre. Salez poivrez à discrétion. Dans un saladier, mettre le mâche. Ajouter",
+        description: "Cuire les pommes de terre environ 30 minutes. Découper les échalottes finement. Durant la cuisson des pommes de terre. Préparez la vinaigrette avec l'Huile d'olive et le vinaigre de cidre. Salez poivrez à discrétion. Dans un saladier, mettre le mâche. Ajouter",
         appliance: 'Casserolle',
         ustensils: ['Couteau', 'saladier', 'cuillère en bois']
     },
@@ -569,9 +569,9 @@ const recipes = [
                 unit: 'tiges'
             },
             {
-                ingredient: "huile d'olives",
+                ingredient: "Huile d'olive",
                 quantity: 2,
-                unit: 'cuillère à soupe'
+                unit: 'Cuillère à soupe'
             }
         ],
         time: 45,
@@ -695,13 +695,13 @@ const recipes = [
                 unit: 'g'
             },
             {
-                ingredient: "huile d'olive",
+                ingredient: "Huile d'olive",
                 quantity: 1,
                 unit: 'cuillères à soupe'
             }
         ],
         time: 30,
-        description: "Faire cuire les pates comme indiqué sur le paquet. Dorer les lardons dans une sauteuse avec l'huile d'olive. Ajouter la crème fraiche et baisser le feu au minimum. Quand les Tagliatelles sont prêtes les mettre dans la sauteuse et bien mélanger le tout en ajoutant le jaune d'oeuf. Servir et ajouter le parmesan râpé.",
+        description: "Faire cuire les pates comme indiqué sur le paquet. Dorer les lardons dans une sauteuse avec l'Huile d'olive. Ajouter la Crème fraiche et baisser le feu au minimum. Quand les Tagliatelles sont prêtes les mettre dans la sauteuse et bien mélanger le tout en ajoutant le jaune d'oeuf. Servir et ajouter le parmesan râpé.",
         appliance: 'Sauteuse',
         ustensils: ['râpe à fromage', 'cuillère en bois']
     },
@@ -741,7 +741,7 @@ const recipes = [
             }
         ],
         time: 30,
-        description: 'Cuisiner la viande hachée dans une poelle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la crème fraiche à la viande hachée. Serivir.',
+        description: 'Cuisiner la viande hachée dans une poelle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la Crème fraiche à la viande hachée. Serivir.',
         appliance: 'Casserolle',
         ustensils: ['Cuillère en bois', 'louche', 'Couteau']
     },
@@ -776,7 +776,7 @@ const recipes = [
             }
         ],
         time: 30,
-        description: "Faire fondre le chocolat et le beurre au bain marie. Dans un saladier battre les oeufs avec le sucre jusqu'à obtenir une texture de type mousse. Ajouter la Farine ainsi que le mélange de beurre et chocolat fondu. Beurrez le moule à gateaux. Mettre au four préchauffé à 200° puis faites chauffer pendant 15 minutes. C'est prêt. Servir avec une boule de glace ou une crème dessert.",
+        description: "Faire fondre le chocolat et le beurre au bain marie. Dans un saladier battre les oeufs avec le sucre jusqu'à obtenir une texture de type mousse. Ajouter la Farine ainsi que le mélange de beurre et chocolat fondu. Beurrez le moule à gateaux. Mettre au four préchauffé à 200° puis faites chauffer pendant 15 minutes. C'est prêt. Servir avec une boule de glace ou une Crème dessert.",
         appliance: 'Four',
         ustensils: ['moule à gateaux', 'fouet', 'casserolle']
     },
@@ -816,7 +816,7 @@ const recipes = [
             }
         ],
         time: 60,
-        description: "Etaler la pate dans un moule et la piquer.Parsemer de beurre. Faire chauffer les lardon dans une poêle. Battre les oeufs en ajoutant la crème fraîche et le lait. Finalement ajouter les lardons, salez poivrez à votre gout. Verser l'ensemble sur la pâte. Cuire environ 50 minutes.",
+        description: "Etaler la pate dans un moule et la piquer.Parsemer de beurre. Faire chauffer les lardon dans une poêle. Battre les oeufs en ajoutant la Crème fraîche et le lait. Finalement ajouter les lardons, salez poivrez à votre gout. Verser l'ensemble sur la pâte. Cuire environ 50 minutes.",
         appliance: 'Four',
         ustensils: ['moule à gateaux', 'rouleau à patisserie', 'fouet']
     },
@@ -908,7 +908,7 @@ const recipes = [
                 quantity: 1
             },
             {
-                ingredient: "Huile d'olives"
+                ingredient: "Huile d'olive"
             },
             {
                 ingredient: 'Oignon',
@@ -941,7 +941,7 @@ const recipes = [
             {
                 ingredient: 'Crème fraîche',
                 quantity: 4,
-                unit: 'cuillère à soupe'
+                unit: 'Cuillère à soupe'
             },
             {
                 ingredient: 'Vermicelles',
@@ -955,7 +955,7 @@ const recipes = [
             }
         ],
         time: 15,
-        description: "Faire fondre l'oseille avec du beurre demi sel, ajouter un litre d'eau. Ajouter les vermicelles. Laisser cuire. une foit prêt, sortir du feu et après 5 minutes ajouter le jaune d'oeuf et la crème fraîche",
+        description: "Faire fondre l'oseille avec du beurre demi sel, ajouter un litre d'eau. Ajouter les vermicelles. Laisser cuire. une foit prêt, sortir du feu et après 5 minutes ajouter le jaune d'oeuf et la Crème fraîche",
         appliance: 'Casserolle',
         ustensils: ['Couteau', 'cuillère en bois']
     },
@@ -984,13 +984,13 @@ const recipes = [
                 unit: 'g'
             },
             {
-                ingredient: 'crème fraîche',
+                ingredient: 'Crème fraîche',
                 quantity: 10,
                 unit: 'cl'
             }
         ],
         time: 80,
-        description: "Emincer les blanc de poireaux et les faire chauffer dans 25 g de beurre. AJouter les pommes de terres coupées en morceaux. Ajouter l'eau et laisser mijoter pour 45 minutes. Chauffer l'oseille avec le beurre restant puis incorporer le tout. Mixez. Ajoutez la crème. Bon appetit.",
+        description: "Emincer les blanc de poireaux et les faire chauffer dans 25 g de beurre. AJouter les pommes de terres coupées en morceaux. Ajouter l'eau et laisser mijoter pour 45 minutes. Chauffer l'oseille avec le beurre restant puis incorporer le tout. Mixez. Ajoutez la Crème. Bon appetit.",
         appliance: 'Mixer',
         ustensils: ['casserolle', 'Couteau']
     },
@@ -1021,7 +1021,7 @@ const recipes = [
             }
         ],
         time: 30,
-        description: "Prendre les pois chiches, les mettre dans le mixer avec de l'huile d'olive, ajouter le jus des 2 citrons et du paprika selon le gout.",
+        description: "Prendre les pois chiches, les mettre dans le mixer avec de l'Huile d'olive, ajouter le jus des 2 citrons et du paprika selon le gout.",
         appliance: 'Mixer',
         ustensils: ['cuillère en bois', 'presse citron']
     },
@@ -1123,7 +1123,7 @@ const recipes = [
         time: 20,
         description: "Beurrer les tranches de pain, ajouter entre 2 tranches de pain de mie 1 tranche d'émental, une de blanc de dinde, et une autre d'emmental. Dans un récipient, mélanger le gruyère rappé avec le lait et la noix de muscade. Mettre sur les croque monsieux. Placer au four durnat 10 minutes.",
         appliance: 'Four',
-        ustensils: ['râpe à fromage', 'cuillère à Soupe', 'Couteau']
+        ustensils: ['râpe à fromage', 'Cuillère à soupe', 'Couteau']
     },
     {
         id: 33,
@@ -1184,7 +1184,7 @@ const recipes = [
             }
         ],
         time: 25,
-        description: "Eplucher les patates douces et coupez les en morceaux. Les faire cuire durant 20 minute dans une casserolle d'eau bouillante. Passer au mixer en ajoutant la crème et l'huile d'olive à son gout. Salez, poivrez. Pressez l'orange et ajouter le jus à l'ensemble. Servir.",
+        description: "Eplucher les patates douces et coupez les en morceaux. Les faire cuire durant 20 minute dans une casserolle d'eau bouillante. Passer au mixer en ajoutant la Crème et l'Huile d'olive à son gout. Salez, poivrez. Pressez l'orange et ajouter le jus à l'ensemble. Servir.",
         appliance: 'Mixer',
         ustensils: ['Couteau', 'économe', 'cuillère en bois']
     },
@@ -1223,7 +1223,7 @@ const recipes = [
             }
         ],
         time: 25,
-        description: 'Éplucher les légumes, les couper en morceaux et les mettre à cuire dans une Cocotte minute environ 15 minutes. Mixer en ajoutant le beurre, la crème. Ajouter le cumun et la noix de muscade.',
+        description: 'Éplucher les légumes, les couper en morceaux et les mettre à cuire dans une Cocotte minute environ 15 minutes. Mixer en ajoutant le beurre, la Crème. Ajouter le cumun et la noix de muscade.',
         appliance: 'Mixer',
         ustensils: ['Cocotte minute', 'Couteau', 'cuillère en bois']
     },
@@ -1281,7 +1281,7 @@ const recipes = [
                 unit: 'g'
             },
             {
-                ingredient: "Huile d'olives",
+                ingredient: "Huile d'olive",
                 quantity: 25,
                 unit: 'cl'
             },
@@ -1302,7 +1302,7 @@ const recipes = [
 
         ],
         time: 60,
-        description: "Couper les courgettes dans le sens de la longueur. Vider les courgette dans un saladier. Réserver.Faire revenir la chair des courgettes dans 25cl d'huile d'olive. Ajouter l'oignon puis la viande hachée. Mettre la farce dans les courgettes. Ajouter le coulis de tomates. Mettre au four pendant 30 minutes. Avant la fin de la cuisson ajouter le fromage rapé",
+        description: "Couper les courgettes dans le sens de la longueur. Vider les courgette dans un saladier. Réserver.Faire revenir la chair des courgettes dans 25cl d'Huile d'olive. Ajouter l'oignon puis la viande hachée. Mettre la farce dans les courgettes. Ajouter le coulis de tomates. Mettre au four pendant 30 minutes. Avant la fin de la cuisson ajouter le fromage rapé",
         appliance: 'Four',
         ustensils: ['Couteau', 'cuillère en bois', 'Poelle à frire']
     },
@@ -1334,7 +1334,7 @@ const recipes = [
         time: 20,
         description: 'Fouettez les oeufs, le sucre et le lait. tremper les tranches de pain. Le cuire au four pendant environ 10 minutes à 180°. Servir',
         appliance: 'Four',
-        ustensils: ['fouet', 'bol', 'Cuillère à Soupe']
+        ustensils: ['fouet', 'bol', 'Cuillère à soupe']
     },
     {
         id: 39,
@@ -1616,7 +1616,7 @@ const recipes = [
             }
         ],
         time: 5,
-        description: 'Mélanger le jus de citron avec le sucre et la mascarpone. Ajouter la crème fraiche. Mélanger le tout et mettre au congélateur pendant 1 heure. Servir',
+        description: 'Mélanger le jus de citron avec le sucre et la mascarpone. Ajouter la Crème fraiche. Mélanger le tout et mettre au congélateur pendant 1 heure. Servir',
         appliance: 'Saladier',
         ustensils: ['fouet', 'verres', 'cuillère en bois']
     },
@@ -2156,23 +2156,67 @@ redSearchbar.addEventListener('input', e => {
 })
 
 // Filtre des tags
-function filterSecondarySearch (recipe, array) {
-    if (recipe.appliance.toLowerCase().includes(...array)) {
+function filterSecondarySearch (recipe, array1, array2, array3) {
+    if (array1.length !== 0 && array2.length === 0 && array3.length === 0) {
+        const listOfIngredients = recipe.ingredients.map(item => {
+            return item.ingredient
+        })
+        if (checker(listOfIngredients.map(ingredient => ingredient.toLowerCase()), array1)) {
+            return true
+        }
+        return false
+    }
+    if (array1.length === 0 && array2.length !== 0 && array3.length === 0) {
+        if (array2.length === 1 && array2.includes(recipe.appliance.toLowerCase())) {
+            return true
+        }
+        return false
+    }
+    if (array1.length === 0 && array2.length === 0 && array3.length !== 0) {
+        if (checker(recipe.ustensils.map(ustensil => ustensil.toLowerCase()), array3)) {
+            return true
+        }
+        return false
+    }
+    if (array1.length !== 0 && array2.length !== 0 && array3.length === 0) {
+        const listOfIngredients = recipe.ingredients.map(item => {
+            return item.ingredient
+        })
+        if (checker(listOfIngredients.map(ingredient => ingredient.toLowerCase()), array1) && array2.length === 1 && array2.includes(recipe.appliance.toLowerCase())) {
+            return true
+        }
+        return false
+    }
+    if (array1.length !== 0 && array2.length === 0 && array3.length !== 0) {
+        const listOfIngredients = recipe.ingredients.map(item => {
+            return item.ingredient
+        })
+        if (checker(listOfIngredients.map(ingredient => ingredient.toLowerCase()), array1) && checker(recipe.ustensils.map(ustensil => ustensil.toLowerCase()), array3)) {
+            return true
+        }
+        return false
+    }
+    if (array1.length === 0 && array2.length !== 0 && array3.length !== 0) {
+        if (array2.length === 1 && array2.includes(recipe.appliance.toLowerCase()) && checker(recipe.ustensils.map(ustensil => ustensil.toLowerCase()), array3)) {
+            return true
+        }
+        return false
+    }
+    if (array1.length !== 0 && array2.length !== 0 && array3.length !== 0) {
+        const listOfIngredients = recipe.ingredients.map(item => {
+            return item.ingredient
+        })
+        if (checker(listOfIngredients.map(ingredient => ingredient.toLowerCase()), array1) && array2.length === 1 && array2.includes(recipe.appliance.toLowerCase()) && checker(recipe.ustensils.map(ustensil => ustensil.toLowerCase()), array3)) {
+            return true
+        }
+        return false
+    }
+}
+
+const checker = (arr, target) => {
+    if (target.every(item => arr.includes(item))) {
         return true
     }
-    for (let index = 0; index < recipe.ingredients.length; index++) {
-        const element = recipe.ingredients[index]
-        if (element.ingredient.toLowerCase().includes(...array)) {
-            return true
-        }
-    }
-    for (let index = 0; index < recipe.ustensils.length; index++) {
-        const element = recipe.ustensils[index]
-        if (element.toLowerCase().includes(...array)) {
-            return true
-        }
-    }
-    return false
 }
 
 // Création des tags
@@ -2247,11 +2291,24 @@ function makeATag (item) {
         tagContainer.appendChild(redTag)
     }
     const tags = document.querySelectorAll('.tag')
-    const tagContent = []
+    const blueTagContent = []
+    const greenTagContent = []
+    const redTagContent = []
     for (let index = 0; index < tags.length; index++) {
-        tagContent.push(tags[index].textContent.toLowerCase())
+        const classTag = tags[index].classList
+        if (classTag.contains('tag__blue')) {
+            blueTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__green')) {
+            greenTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__red')) {
+            redTagContent.push(tags[index].textContent)
+        }
+        console.log(blueTagContent)
+        console.log(greenTagContent)
+        console.log(redTagContent)
     }
-    const newRecipesList = recipes.filter(recipe => filterSecondarySearch(recipe, tagContent))
+    const newRecipesList = recipes.filter(recipe => filterSecondarySearch(recipe, blueTagContent, greenTagContent, redTagContent))
+    console.log(newRecipesList)
     const ingArrTag = []
     const appArrTag = []
     const ustArrTag = []
@@ -2284,12 +2341,21 @@ function removeATag (item) {
     const tag = item.parentNode
     tag.remove()
     const tags = document.querySelectorAll('.tag')
-    const tagContent = []
+    const blueTagContent = []
+    const greenTagContent = []
+    const redTagContent = []
     if (tags.length !== 0) {
         for (let index = 0; index < tags.length; index++) {
-            tagContent.push(tags[index].textContent.toLowerCase())
+            const classTag = tags[index].classList
+            if (classTag.contains('tag__blue')) {
+                blueTagContent.push(tags[index].textContent.toLowerCase())
+            } else if (classTag.contains('tag__green')) {
+                greenTagContent.push(tags[index].textContent.toLowerCase())
+            } else if (classTag.contains('tag__red')) {
+                redTagContent.push(tags[index].textContent.toLowerCase())
+            }
         }
-        const newRecipesList = recipes.filter(recipe => filterSecondarySearch(recipe, tagContent))
+        const newRecipesList = recipes.filter(recipe => filterSecondarySearch(recipe, blueTagContent, greenTagContent, redTagContent))
         const ingArrTag = []
         const appArrTag = []
         const ustArrTag = []
