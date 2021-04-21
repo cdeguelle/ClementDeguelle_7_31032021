@@ -1920,6 +1920,11 @@ function displayRecipesGrid (array) {
             }
         }
     }
+    if (recipesGrid.childElementCount === 0) {
+        noResults.style.display = 'flex'
+    } else {
+        noResults.style.display = 'none'
+    }
 }
 
 // Algorithme de recherche mainSearch
@@ -1965,11 +1970,138 @@ mainSearchbar.addEventListener('input', e => {
         const ustArraySearch = [...setUstArrSearch]
         displayRecipesGrid(newRecipesList)
         displaySearchbarMenus(ingArraySearch, appArraySearch, ustArraySearch)
-        if (recipesGrid.childElementCount === 0) {
-            noResults.style.display = 'flex'
-        } else {
-            noResults.style.display = 'none'
-        }
+        blueSearchbar.addEventListener('input', e => {
+            const input = e.target.value.toLowerCase()
+            if (input.length >= 3) {
+                const newIngList = ingArraySearch.filter(ing => ing.toLowerCase().includes(input))
+                blueSearchbarMenu.innerHTML = ''
+                for (let index = 0; index < newIngList.length; index++) {
+                    const ingredientList = elFactory(
+                        'li',
+                        {
+                            class: 'item__menu'
+                        },
+                        elFactory(
+                            'a',
+                            {
+                                class: 'item__link blue-item',
+                                href: '#'
+                            },
+                            newIngList[index]
+                        )
+                    )
+                    blueSearchbarMenu.appendChild(ingredientList)
+                }
+            } else {
+                blueSearchbarMenu.innerHTML = ''
+                for (let index = 0; index < ingArraySearch.length; index++) {
+                    const ingredientList = elFactory(
+                        'li',
+                        {
+                            class: 'item__menu'
+                        },
+                        elFactory(
+                            'a',
+                            {
+                                class: 'item__link blue-item',
+                                href: '#'
+                            },
+                            ingArraySearch[index]
+                        )
+                    )
+                    blueSearchbarMenu.appendChild(ingredientList)
+                }
+            }
+            document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
+        })
+        greenSearchbar.addEventListener('input', e => {
+            const input = e.target.value.toLowerCase()
+            if (input.length >= 3) {
+                const newAppList = appArraySearch.filter(app => app.toLowerCase().includes(input))
+                greenSearchbarMenu.innerHTML = ''
+                for (let index = 0; index < newAppList.length; index++) {
+                    const applianceList = elFactory(
+                        'li',
+                        {
+                            class: 'item__menu'
+                        },
+                        elFactory(
+                            'a',
+                            {
+                                class: 'item__link green-item',
+                                href: '#'
+                            },
+                            newAppList[index]
+                        )
+                    )
+                    greenSearchbarMenu.appendChild(applianceList)
+                }
+            } else {
+                greenSearchbarMenu.innerHTML = ''
+                for (let index = 0; index < appArraySearch.length; index++) {
+                    const applianceList = elFactory(
+                        'li',
+                        {
+                            class: 'item__menu'
+                        },
+                        elFactory(
+                            'a',
+                            {
+                                class: 'item__link green-item',
+                                href: '#'
+                            },
+                            appArraySearch[index]
+                        )
+                    )
+                    greenSearchbarMenu.appendChild(applianceList)
+                }
+            }
+            document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
+        })
+        redSearchbar.addEventListener('input', e => {
+            const input = e.target.value.toLowerCase()
+            if (input.length >= 3) {
+                const newUstList = ustArraySearch.filter(ust => ust.toLowerCase().includes(input))
+                redSearchbarMenu.innerHTML = ''
+                for (let index = 0; index < newUstList.length; index++) {
+                    const ustList = elFactory(
+                        'li',
+                        {
+                            class: 'item__menu'
+                        },
+                        elFactory(
+                            'a',
+                            {
+                                class: 'item__link red-item',
+                                href: '#'
+                            },
+                            newUstList[index]
+                        )
+                    )
+                    redSearchbarMenu.appendChild(ustList)
+                }
+            } else {
+                redSearchbarMenu.innerHTML = ''
+                for (let index = 0; index < ustArraySearch.length; index++) {
+                    const ustensilList = elFactory(
+                        'li',
+                        {
+                            class: 'item__menu'
+                        },
+                        elFactory(
+                            'a',
+                            {
+                                class: 'item__link red-item',
+                                href: '#'
+                            },
+                            ustArraySearch[index]
+                        )
+                    )
+                    redSearchbarMenu.appendChild(ustensilList)
+                }
+            }
+            document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
+        })
     } else {
         displayRecipesGrid(recipes)
         displaySearchbarMenus(ingArray, appArray, ustArray)
@@ -2068,32 +2200,47 @@ function displaySearchbarMenus (arrayBlue, arrayGreen, arrayRed) {
 // Blue
 blueSearchbar.addEventListener('input', e => {
     const input = e.target.value.toLowerCase()
-    if (input.length >= 3) {
+    if (input.length >= 3 && mainSearchbar.value === '') {
         const newIngList = ingArray.filter(ing => ing.toLowerCase().includes(input))
         blueSearchbarMenu.innerHTML = ''
         for (let index = 0; index < newIngList.length; index++) {
             const ingredientList = elFactory(
                 'li',
                 {
-                    class: 'item-menu'
+                    class: 'item__menu'
                 },
-                newIngList[index]
+                elFactory(
+                    'a',
+                    {
+                        class: 'item__link blue-item',
+                        href: '#'
+                    },
+                    newIngList[index]
+                )
             )
             blueSearchbarMenu.appendChild(ingredientList)
         }
-    } else {
+    } else if (input.length < 3 && mainSearchbar.value === '') {
         blueSearchbarMenu.innerHTML = ''
         for (let index = 0; index < ingArray.length; index++) {
             const ingredientList = elFactory(
                 'li',
                 {
-                    class: 'item-menu'
+                    class: 'item__menu'
                 },
-                ingArray[index]
+                elFactory(
+                    'a',
+                    {
+                        class: 'item__link blue-item',
+                        href: '#'
+                    },
+                    ingArray[index]
+                )
             )
             blueSearchbarMenu.appendChild(ingredientList)
         }
     }
+    document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
 })
 
 // Green
@@ -2106,28 +2253,40 @@ greenSearchbar.addEventListener('input', e => {
             const applianceList = elFactory(
                 'li',
                 {
-                    class: 'item-menu'
+                    class: 'item__menu'
                 },
-                newAppList[index]
+                elFactory(
+                    'a',
+                    {
+                        class: 'item__link green-item',
+                        href: '#'
+                    },
+                    newAppList[index]
+                )
             )
             greenSearchbarMenu.appendChild(applianceList)
         }
-        const newRecipesList = recipes.filter(recipe => recipe.appliance.toLowerCase().includes(input))
-        displayRecipesGrid(newRecipesList)
-    } else {
+    } else if (input.length < 3 && mainSearchbar.value === '') {
         greenSearchbarMenu.innerHTML = ''
         for (let index = 0; index < appArray.length; index++) {
             const applianceList = elFactory(
                 'li',
                 {
-                    class: 'item-menu'
+                    class: 'item__menu'
                 },
-                appArray[index]
+                elFactory(
+                    'a',
+                    {
+                        class: 'item__link green-item',
+                        href: '#'
+                    },
+                    appArray[index]
+                )
             )
             greenSearchbarMenu.appendChild(applianceList)
         }
-        displayRecipesGrid(recipes)
     }
+    document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
 })
 
 // Red
@@ -2140,25 +2299,40 @@ redSearchbar.addEventListener('input', e => {
             const ustList = elFactory(
                 'li',
                 {
-                    class: 'item-menu'
+                    class: 'item__menu'
                 },
-                newUstList[index]
+                elFactory(
+                    'a',
+                    {
+                        class: 'item__link red-item',
+                        href: '#'
+                    },
+                    newUstList[index]
+                )
             )
             redSearchbarMenu.appendChild(ustList)
         }
-    } else {
+    } else if (input.length < 3 && mainSearchbar.value === '') {
         redSearchbarMenu.innerHTML = ''
         for (let index = 0; index < ustArray.length; index++) {
             const ustensilList = elFactory(
                 'li',
                 {
-                    class: 'item-menu'
+                    class: 'item__menu'
                 },
-                ustArray[index]
+                elFactory(
+                    'a',
+                    {
+                        class: 'item__link red-item',
+                        href: '#'
+                    },
+                    ustArray[index]
+                )
             )
             redSearchbarMenu.appendChild(ustensilList)
         }
     }
+    document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
 })
 
 // Filtre des tags
@@ -2251,6 +2425,8 @@ function makeATag (item) {
             )
         )
         tagContainer.appendChild(blueTag)
+        toggleBlueNavbar()
+        blueSearchbar.value = ''
     } else if (classItem.contains('green-item')) {
         const greenTag = elFactory(
             'div',
@@ -2273,6 +2449,8 @@ function makeATag (item) {
             )
         )
         tagContainer.appendChild(greenTag)
+        toggleGreenNavbar()
+        greenSearchbar.value = ''
     } else if (classItem.contains('red-item')) {
         const redTag = elFactory(
             'div',
@@ -2295,6 +2473,8 @@ function makeATag (item) {
             )
         )
         tagContainer.appendChild(redTag)
+        toggleRedNavbar()
+        redSearchbar.value = ''
     }
     const tags = document.querySelectorAll('.tag')
     const blueTagContent = []
