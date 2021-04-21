@@ -1946,199 +1946,69 @@ mainSearchbar.addEventListener('input', e => {
     const input = e.target.value.toLowerCase()
     if (input.length >= 3) {
         const newRecipesList = recipes.filter(recipe => filterMainSearch(recipe, input))
-        const ingArrSearch = []
-        const appArrSearch = []
-        const ustArrSearch = []
-        for (let index = 0; index < newRecipesList.length; index++) {
-            for (let i = 0; i < newRecipesList[index].ingredients.length; i++) {
-                ingArrSearch.push(newRecipesList[index].ingredients[i].ingredient)
-            }
-        }
-        const setIngArrSearch = new Set(ingArrSearch)
-        const ingArraySearch = [...setIngArrSearch]
-        for (let index = 0; index < newRecipesList.length; index++) {
-            appArrSearch.push(newRecipesList[index].appliance)
-        }
-        const setAppArrSearch = new Set(appArrSearch)
-        const appArraySearch = [...setAppArrSearch]
-        for (let index = 0; index < newRecipesList.length; index++) {
-            for (let i = 0; i < newRecipesList[index].ustensils.length; i++) {
-                ustArrSearch.push(newRecipesList[index].ustensils[i])
-            }
-        }
-        const setUstArrSearch = new Set(ustArrSearch)
-        const ustArraySearch = [...setUstArrSearch]
         displayRecipesGrid(newRecipesList)
-        displaySearchbarMenus(ingArraySearch, appArraySearch, ustArraySearch)
-        blueSearchbar.addEventListener('input', e => {
-            const input = e.target.value.toLowerCase()
-            if (input.length >= 3) {
-                const newIngList = ingArraySearch.filter(ing => ing.toLowerCase().includes(input))
-                blueSearchbarMenu.innerHTML = ''
-                for (let index = 0; index < newIngList.length; index++) {
-                    const ingredientList = elFactory(
-                        'li',
-                        {
-                            class: 'item__menu'
-                        },
-                        elFactory(
-                            'a',
-                            {
-                                class: 'item__link blue-item',
-                                href: '#'
-                            },
-                            newIngList[index]
-                        )
-                    )
-                    blueSearchbarMenu.appendChild(ingredientList)
-                }
-            } else {
-                blueSearchbarMenu.innerHTML = ''
-                for (let index = 0; index < ingArraySearch.length; index++) {
-                    const ingredientList = elFactory(
-                        'li',
-                        {
-                            class: 'item__menu'
-                        },
-                        elFactory(
-                            'a',
-                            {
-                                class: 'item__link blue-item',
-                                href: '#'
-                            },
-                            ingArraySearch[index]
-                        )
-                    )
-                    blueSearchbarMenu.appendChild(ingredientList)
-                }
-            }
-            document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
-        })
-        greenSearchbar.addEventListener('input', e => {
-            const input = e.target.value.toLowerCase()
-            if (input.length >= 3) {
-                const newAppList = appArraySearch.filter(app => app.toLowerCase().includes(input))
-                greenSearchbarMenu.innerHTML = ''
-                for (let index = 0; index < newAppList.length; index++) {
-                    const applianceList = elFactory(
-                        'li',
-                        {
-                            class: 'item__menu'
-                        },
-                        elFactory(
-                            'a',
-                            {
-                                class: 'item__link green-item',
-                                href: '#'
-                            },
-                            newAppList[index]
-                        )
-                    )
-                    greenSearchbarMenu.appendChild(applianceList)
-                }
-            } else {
-                greenSearchbarMenu.innerHTML = ''
-                for (let index = 0; index < appArraySearch.length; index++) {
-                    const applianceList = elFactory(
-                        'li',
-                        {
-                            class: 'item__menu'
-                        },
-                        elFactory(
-                            'a',
-                            {
-                                class: 'item__link green-item',
-                                href: '#'
-                            },
-                            appArraySearch[index]
-                        )
-                    )
-                    greenSearchbarMenu.appendChild(applianceList)
-                }
-            }
-            document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
-        })
-        redSearchbar.addEventListener('input', e => {
-            const input = e.target.value.toLowerCase()
-            if (input.length >= 3) {
-                const newUstList = ustArraySearch.filter(ust => ust.toLowerCase().includes(input))
-                redSearchbarMenu.innerHTML = ''
-                for (let index = 0; index < newUstList.length; index++) {
-                    const ustList = elFactory(
-                        'li',
-                        {
-                            class: 'item__menu'
-                        },
-                        elFactory(
-                            'a',
-                            {
-                                class: 'item__link red-item',
-                                href: '#'
-                            },
-                            newUstList[index]
-                        )
-                    )
-                    redSearchbarMenu.appendChild(ustList)
-                }
-            } else {
-                redSearchbarMenu.innerHTML = ''
-                for (let index = 0; index < ustArraySearch.length; index++) {
-                    const ustensilList = elFactory(
-                        'li',
-                        {
-                            class: 'item__menu'
-                        },
-                        elFactory(
-                            'a',
-                            {
-                                class: 'item__link red-item',
-                                href: '#'
-                            },
-                            ustArraySearch[index]
-                        )
-                    )
-                    redSearchbarMenu.appendChild(ustensilList)
-                }
-            }
-            document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
-        })
-    } else {
+        let ingArraySearch = []
+        let appArraySearch = []
+        let ustArraySearch = []
+        if (blueSearchbar.value.length >= 3) {
+            ingArraySearch = ingArraySearch.filter(ing => ing.toLowerCase().includes(blueSearchbar.value.toLowerCase()))
+        }
+        if (greenSearchbar.value.length >= 3) {
+            appArraySearch = appArraySearch.filter(app => app.toLowerCase().includes(greenSearchbar.value.toLowerCase()))
+        }
+        if (redSearchbar.value.length >= 3) {
+            ustArraySearch = ustArraySearch.filter(ust => ust.toLowerCase().includes(redSearchbar.value.toLowerCase()))
+        }
+        refreshSecondaryMenus(ingArraySearch, appArraySearch, ustArraySearch, newRecipesList)
+    } else if (input.length < 3 && tagContainer.childElementCount === 0) {
         displayRecipesGrid(recipes)
-        displaySearchbarMenus(ingArray, appArray, ustArray)
+        refreshSecondaryMenus(ingArray, appArray, ustArray, recipes)
+    } else if (input.length < 3 && tagContainer.childElementCount > 0) {
+        const mainList = recipes.filter(recipe => filterMainSearch(recipe, input))
+        filterByTag(mainList)
     }
 })
 
 // Contenu des barres de recherches secondaires
 // Création de tableaux pour supprimer les doublons
-const ingArr = []
-for (let index = 0; index < recipes.length; index++) {
-    for (let i = 0; i < recipes[index].ingredients.length; i++) {
-        ingArr.push(recipes[index].ingredients[i].ingredient)
+function refreshSecondaryMenus (blue, green, red, recipesList) {
+    const ingArr = []
+    for (let index = 0; index < recipesList.length; index++) {
+        for (let i = 0; i < recipesList[index].ingredients.length; i++) {
+            ingArr.push(recipesList[index].ingredients[i].ingredient)
+        }
     }
-}
-const setIngArr = new Set(ingArr)
-const ingArray = [...setIngArr]
+    const setIngArr = new Set(ingArr)
+    blue = [...setIngArr]
 
-const appArr = []
-for (let index = 0; index < recipes.length; index++) {
-    appArr.push(recipes[index].appliance)
-}
-const setAppArr = new Set(appArr)
-const appArray = [...setAppArr]
-
-const ustArr = []
-for (let index = 0; index < recipes.length; index++) {
-    for (let i = 0; i < recipes[index].ustensils.length; i++) {
-        ustArr.push(recipes[index].ustensils[i])
+    const appArr = []
+    for (let index = 0; index < recipesList.length; index++) {
+        appArr.push(recipesList[index].appliance)
     }
-}
-const setUstArr = new Set(ustArr)
-const ustArray = [...setUstArr]
+    const setAppArr = new Set(appArr)
+    green = [...setAppArr]
 
-window.addEventListener('DOMContentLoaded', displaySearchbarMenus(ingArray, appArray, ustArray))
+    const ustArr = []
+    for (let index = 0; index < recipesList.length; index++) {
+        for (let i = 0; i < recipesList[index].ustensils.length; i++) {
+            ustArr.push(recipesList[index].ustensils[i])
+        }
+    }
+    const setUstArr = new Set(ustArr)
+    red = [...setUstArr]
+    displayBlueSearchbarMenu(blue)
+    displayGreenSearchbarMenu(green)
+    displayRedSearchbarMenu(red)
+}
+
+const ingArray = []
+const appArray = []
+const ustArray = []
+
+window.addEventListener('DOMContentLoaded', refreshSecondaryMenus(ingArray, appArray, ustArray, recipes))
 
 // Lecture des nouveaux tableaux
-function displaySearchbarMenus (arrayBlue, arrayGreen, arrayRed) {
+function displayBlueSearchbarMenu (arrayBlue) {
     blueSearchbarMenu.innerHTML = ''
     for (let index = 0; index < arrayBlue.length; index++) {
         const ingredientList = elFactory(
@@ -2149,7 +2019,7 @@ function displaySearchbarMenus (arrayBlue, arrayGreen, arrayRed) {
             elFactory(
                 'a',
                 {
-                    class: 'item__link blue-item',
+                    class: 'blue__link',
                     href: '#'
                 },
                 arrayBlue[index]
@@ -2157,6 +2027,10 @@ function displaySearchbarMenus (arrayBlue, arrayGreen, arrayRed) {
         )
         blueSearchbarMenu.appendChild(ingredientList)
     }
+    document.querySelectorAll('.blue__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
+}
+
+function displayGreenSearchbarMenu (arrayGreen) {
     greenSearchbarMenu.innerHTML = ''
     for (let index = 0; index < arrayGreen.length; index++) {
         const applianceList = elFactory(
@@ -2167,7 +2041,7 @@ function displaySearchbarMenus (arrayBlue, arrayGreen, arrayRed) {
             elFactory(
                 'a',
                 {
-                    class: 'item__link green-item',
+                    class: 'green__link',
                     href: '#'
                 },
                 arrayGreen[index]
@@ -2175,6 +2049,10 @@ function displaySearchbarMenus (arrayBlue, arrayGreen, arrayRed) {
         )
         greenSearchbarMenu.appendChild(applianceList)
     }
+    document.querySelectorAll('.green__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
+}
+
+function displayRedSearchbarMenu (arrayRed) {
     redSearchbarMenu.innerHTML = ''
     for (let index = 0; index < arrayRed.length; index++) {
         const ustensilList = elFactory(
@@ -2185,7 +2063,7 @@ function displaySearchbarMenus (arrayBlue, arrayGreen, arrayRed) {
             elFactory(
                 'a',
                 {
-                    class: 'item__link red-item',
+                    class: 'red__link',
                     href: '#'
                 },
                 arrayRed[index]
@@ -2193,146 +2071,128 @@ function displaySearchbarMenus (arrayBlue, arrayGreen, arrayRed) {
         )
         redSearchbarMenu.appendChild(ustensilList)
     }
-    document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
+    document.querySelectorAll('.red__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
 }
 
 // Algorithme de recherche secondarySearch
 // Blue
 blueSearchbar.addEventListener('input', e => {
     const input = e.target.value.toLowerCase()
-    if (input.length >= 3 && mainSearchbar.value === '') {
-        const newIngList = ingArray.filter(ing => ing.toLowerCase().includes(input))
-        blueSearchbarMenu.innerHTML = ''
-        for (let index = 0; index < newIngList.length; index++) {
-            const ingredientList = elFactory(
-                'li',
-                {
-                    class: 'item__menu'
-                },
-                elFactory(
-                    'a',
-                    {
-                        class: 'item__link blue-item',
-                        href: '#'
-                    },
-                    newIngList[index]
-                )
-            )
-            blueSearchbarMenu.appendChild(ingredientList)
-        }
-    } else if (input.length < 3 && mainSearchbar.value === '') {
-        blueSearchbarMenu.innerHTML = ''
-        for (let index = 0; index < ingArray.length; index++) {
-            const ingredientList = elFactory(
-                'li',
-                {
-                    class: 'item__menu'
-                },
-                elFactory(
-                    'a',
-                    {
-                        class: 'item__link blue-item',
-                        href: '#'
-                    },
-                    ingArray[index]
-                )
-            )
-            blueSearchbarMenu.appendChild(ingredientList)
+    const mainInput = mainSearchbar.value
+    const newRecipesList = recipes.filter(recipe => filterMainSearch(recipe, mainInput))
+    let ingArr = []
+    for (let index = 0; index < recipes.length; index++) {
+        for (let i = 0; i < recipes[index].ingredients.length; i++) {
+            ingArr.push(recipes[index].ingredients[i].ingredient)
         }
     }
-    document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
+    let setIngArr = new Set(ingArr)
+    let ingArray = [...setIngArr]
+    if (input.length >= 3 && mainInput.length < 3) {
+        const newIngList = ingArray.filter(ing => ing.toLowerCase().includes(input))
+        displayBlueSearchbarMenu(newIngList)
+    } else if (input.length < 3 && mainInput.length < 3) {
+        displayBlueSearchbarMenu(ingArray)
+    } else if (input.length >= 3 && mainInput.length >= 3) {
+        ingArr = []
+        for (let index = 0; index < newRecipesList.length; index++) {
+            for (let i = 0; i < newRecipesList[index].ingredients.length; i++) {
+                ingArr.push(newRecipesList[index].ingredients[i].ingredient)
+            }
+        }
+        setIngArr = new Set(ingArr)
+        ingArray = [...setIngArr]
+        const list = ingArray.filter(ing => ing.toLowerCase().includes(input))
+        displayBlueSearchbarMenu(list)
+    } else if (input.length < 3 && mainInput.length >= 3) {
+        ingArr = []
+        for (let index = 0; index < newRecipesList.length; index++) {
+            for (let i = 0; i < newRecipesList[index].ingredients.length; i++) {
+                ingArr.push(newRecipesList[index].ingredients[i].ingredient)
+            }
+        }
+        setIngArr = new Set(ingArr)
+        ingArray = [...setIngArr]
+        displayBlueSearchbarMenu(ingArray)
+    }
 })
 
 // Green
 greenSearchbar.addEventListener('input', e => {
     const input = e.target.value.toLowerCase()
-    if (input.length >= 3) {
-        const newAppList = appArray.filter(app => app.toLowerCase().includes(input))
-        greenSearchbarMenu.innerHTML = ''
-        for (let index = 0; index < newAppList.length; index++) {
-            const applianceList = elFactory(
-                'li',
-                {
-                    class: 'item__menu'
-                },
-                elFactory(
-                    'a',
-                    {
-                        class: 'item__link green-item',
-                        href: '#'
-                    },
-                    newAppList[index]
-                )
-            )
-            greenSearchbarMenu.appendChild(applianceList)
-        }
-    } else if (input.length < 3 && mainSearchbar.value === '') {
-        greenSearchbarMenu.innerHTML = ''
-        for (let index = 0; index < appArray.length; index++) {
-            const applianceList = elFactory(
-                'li',
-                {
-                    class: 'item__menu'
-                },
-                elFactory(
-                    'a',
-                    {
-                        class: 'item__link green-item',
-                        href: '#'
-                    },
-                    appArray[index]
-                )
-            )
-            greenSearchbarMenu.appendChild(applianceList)
-        }
+    const mainInput = mainSearchbar.value
+    const newRecipesList = recipes.filter(recipe => filterMainSearch(recipe, mainInput))
+    let appArr = []
+    for (let index = 0; index < newRecipesList.length; index++) {
+        appArr.push(newRecipesList[index].appliance)
     }
-    document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
+    let setAppArr = new Set(appArr)
+    let appArray = [...setAppArr]
+    if (input.length >= 3 && mainInput.length < 3) {
+        const newAppList = appArray.filter(app => app.toLowerCase().includes(input))
+        displayGreenSearchbarMenu(newAppList)
+    } else if (input.length < 3 && mainInput.length < 3) {
+        displayGreenSearchbarMenu(appArray)
+    } else if (input.length >= 3 && mainInput.length >= 3) {
+        appArr = []
+        for (let index = 0; index < newRecipesList.length; index++) {
+            appArr.push(newRecipesList[index].appliance)
+        }
+        setAppArr = new Set(appArr)
+        appArray = [...setAppArr]
+        const list = appArray.filter(app => app.toLowerCase().includes(input))
+        displayGreenSearchbarMenu(list)
+    } else if (input.length < 3 && mainInput.length >= 3) {
+        appArr = []
+        for (let index = 0; index < newRecipesList.length; index++) {
+            appArr.push(newRecipesList[index].appliance)
+        }
+        setAppArr = new Set(appArr)
+        appArray = [...setAppArr]
+        displayGreenSearchbarMenu(appArray)
+    }
 })
 
 // Red
 redSearchbar.addEventListener('input', e => {
     const input = e.target.value.toLowerCase()
-    if (input.length >= 3) {
-        const newUstList = ustArray.filter(ust => ust.toLowerCase().includes(input))
-        redSearchbarMenu.innerHTML = ''
-        for (let index = 0; index < newUstList.length; index++) {
-            const ustList = elFactory(
-                'li',
-                {
-                    class: 'item__menu'
-                },
-                elFactory(
-                    'a',
-                    {
-                        class: 'item__link red-item',
-                        href: '#'
-                    },
-                    newUstList[index]
-                )
-            )
-            redSearchbarMenu.appendChild(ustList)
-        }
-    } else if (input.length < 3 && mainSearchbar.value === '') {
-        redSearchbarMenu.innerHTML = ''
-        for (let index = 0; index < ustArray.length; index++) {
-            const ustensilList = elFactory(
-                'li',
-                {
-                    class: 'item__menu'
-                },
-                elFactory(
-                    'a',
-                    {
-                        class: 'item__link red-item',
-                        href: '#'
-                    },
-                    ustArray[index]
-                )
-            )
-            redSearchbarMenu.appendChild(ustensilList)
+    const mainInput = mainSearchbar.value
+    const newRecipesList = recipes.filter(recipe => filterMainSearch(recipe, mainInput))
+    let ustArr = []
+    for (let index = 0; index < newRecipesList.length; index++) {
+        for (let i = 0; i < newRecipesList[index].ustensils.length; i++) {
+            ustArr.push(newRecipesList[index].ustensils[i])
         }
     }
-    document.querySelectorAll('.item__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
+    let setUstArr = new Set(ustArr)
+    let ustArray = [...setUstArr]
+    if (input.length >= 3 && mainInput < 3) {
+        const newUstList = ustArray.filter(ust => ust.toLowerCase().includes(input))
+        displayRedSearchbarMenu(newUstList)
+    } else if (input.length < 3 && mainInput < 3) {
+        displayRedSearchbarMenu(ustArray)
+    } else if (input.length >= 3 && mainInput.length >= 3) {
+        ustArr = []
+        for (let index = 0; index < newRecipesList.length; index++) {
+            for (let i = 0; i < newRecipesList[index].ustensils.length; i++) {
+                ustArr.push(newRecipesList[index].ustensils[i])
+            }
+        }
+        setUstArr = new Set(ustArr)
+        ustArray = [...setUstArr]
+        const list = ustArray.filter(ust => ust.toLowerCase().includes(input))
+        displayRedSearchbarMenu(list)
+    } else if (input.length < 3 && mainInput.length >= 3) {
+        ustArr = []
+        for (let index = 0; index < newRecipesList.length; index++) {
+            for (let i = 0; i < newRecipesList[index].ustensils.length; i++) {
+                ustArr.push(newRecipesList[index].ustensils[i])
+            }
+        }
+        setUstArr = new Set(ustArr)
+        ustArray = [...setUstArr]
+        displayRedSearchbarMenu(ustArray)
+    }
 })
 
 // Filtre des tags
@@ -2400,10 +2260,33 @@ const checker = (arr, target) => {
 }
 
 // Création des tags
+function filterByTag (recipesList) {
+    const tags = document.querySelectorAll('.tag')
+    const blueTagContent = []
+    const greenTagContent = []
+    const redTagContent = []
+    for (let index = 0; index < tags.length; index++) {
+        const classTag = tags[index].classList
+        if (classTag.contains('tag__blue')) {
+            blueTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__green')) {
+            greenTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__red')) {
+            redTagContent.push(tags[index].textContent)
+        }
+    }
+    const newRecipesList = recipesList.filter(recipe => filterSecondarySearch(recipe, blueTagContent, greenTagContent, redTagContent))
+    displayRecipesGrid(newRecipesList)
+    const ingArrTag = []
+    const appArrTag = []
+    const ustArrTag = []
+    refreshSecondaryMenus(ingArrTag, appArrTag, ustArrTag, newRecipesList)
+}
+
 function makeATag (item) {
     const classItem = item.classList
     const contentItem = item.textContent.toLowerCase()
-    if (classItem.contains('blue-item')) {
+    if (classItem.contains('blue__link')) {
         const blueTag = elFactory(
             'div',
             {
@@ -2427,7 +2310,7 @@ function makeATag (item) {
         tagContainer.appendChild(blueTag)
         toggleBlueNavbar()
         blueSearchbar.value = ''
-    } else if (classItem.contains('green-item')) {
+    } else if (classItem.contains('green__link')) {
         const greenTag = elFactory(
             'div',
             {
@@ -2451,7 +2334,7 @@ function makeATag (item) {
         tagContainer.appendChild(greenTag)
         toggleGreenNavbar()
         greenSearchbar.value = ''
-    } else if (classItem.contains('red-item')) {
+    } else if (classItem.contains('red__link')) {
         const redTag = elFactory(
             'div',
             {
@@ -2476,47 +2359,9 @@ function makeATag (item) {
         toggleRedNavbar()
         redSearchbar.value = ''
     }
-    const tags = document.querySelectorAll('.tag')
-    const blueTagContent = []
-    const greenTagContent = []
-    const redTagContent = []
-    for (let index = 0; index < tags.length; index++) {
-        const classTag = tags[index].classList
-        if (classTag.contains('tag__blue')) {
-            blueTagContent.push(tags[index].textContent)
-        } else if (classTag.contains('tag__green')) {
-            greenTagContent.push(tags[index].textContent)
-        } else if (classTag.contains('tag__red')) {
-            redTagContent.push(tags[index].textContent)
-        }
-    }
     const input = mainSearchbar.value.toLowerCase()
     const mainList = recipes.filter(recipe => filterMainSearch(recipe, input))
-    const newRecipesList = mainList.filter(recipe => filterSecondarySearch(recipe, blueTagContent, greenTagContent, redTagContent))
-    const ingArrTag = []
-    const appArrTag = []
-    const ustArrTag = []
-    for (let index = 0; index < newRecipesList.length; index++) {
-        for (let i = 0; i < newRecipesList[index].ingredients.length; i++) {
-            ingArrTag.push(newRecipesList[index].ingredients[i].ingredient)
-        }
-    }
-    const setIngArrTag = new Set(ingArrTag)
-    const ingArrayTag = [...setIngArrTag]
-    for (let index = 0; index < newRecipesList.length; index++) {
-        appArrTag.push(newRecipesList[index].appliance)
-    }
-    const setAppArrTag = new Set(appArrTag)
-    const appArrayTag = [...setAppArrTag]
-    for (let index = 0; index < newRecipesList.length; index++) {
-        for (let i = 0; i < newRecipesList[index].ustensils.length; i++) {
-            ustArrTag.push(newRecipesList[index].ustensils[i])
-        }
-    }
-    const setUstArrTag = new Set(ustArrTag)
-    const ustArrayTag = [...setUstArrTag]
-    displaySearchbarMenus(ingArrayTag, appArrayTag, ustArrayTag)
-    displayRecipesGrid(newRecipesList)
+    filterByTag(mainList)
     document.querySelectorAll('.tag__close').forEach(item => item.addEventListener('click', () => removeATag(item)))
 }
 
@@ -2525,73 +2370,17 @@ function removeATag (item) {
     const tag = item.parentNode
     tag.remove()
     const tags = document.querySelectorAll('.tag')
-    const blueTagContent = []
-    const greenTagContent = []
-    const redTagContent = []
     if (tags.length !== 0) {
-        for (let index = 0; index < tags.length; index++) {
-            const classTag = tags[index].classList
-            if (classTag.contains('tag__blue')) {
-                blueTagContent.push(tags[index].textContent.toLowerCase())
-            } else if (classTag.contains('tag__green')) {
-                greenTagContent.push(tags[index].textContent.toLowerCase())
-            } else if (classTag.contains('tag__red')) {
-                redTagContent.push(tags[index].textContent.toLowerCase())
-            }
-        }
         const input = mainSearchbar.value.toLowerCase()
         const mainList = recipes.filter(recipe => filterMainSearch(recipe, input))
-        const newRecipesList = mainList.filter(recipe => filterSecondarySearch(recipe, blueTagContent, greenTagContent, redTagContent))
-        const ingArrTag = []
-        const appArrTag = []
-        const ustArrTag = []
-        for (let index = 0; index < newRecipesList.length; index++) {
-            for (let i = 0; i < newRecipesList[index].ingredients.length; i++) {
-                ingArrTag.push(newRecipesList[index].ingredients[i].ingredient)
-            }
-        }
-        const setIngArrTag = new Set(ingArrTag)
-        const ingArrayTag = [...setIngArrTag]
-        for (let index = 0; index < newRecipesList.length; index++) {
-            appArrTag.push(newRecipesList[index].appliance)
-        }
-        const setAppArrTag = new Set(appArrTag)
-        const appArrayTag = [...setAppArrTag]
-        for (let index = 0; index < newRecipesList.length; index++) {
-            for (let i = 0; i < newRecipesList[index].ustensils.length; i++) {
-                ustArrTag.push(newRecipesList[index].ustensils[i])
-            }
-        }
-        const setUstArrTag = new Set(ustArrTag)
-        const ustArrayTag = [...setUstArrTag]
-        displaySearchbarMenus(ingArrayTag, appArrayTag, ustArrayTag)
-        displayRecipesGrid(newRecipesList)
+        filterByTag(mainList)
     } else {
         const input = mainSearchbar.value.toLowerCase()
         const mainList = recipes.filter(recipe => filterMainSearch(recipe, input))
         const ingArrTag = []
         const appArrTag = []
         const ustArrTag = []
-        for (let index = 0; index < mainList.length; index++) {
-            for (let i = 0; i < mainList[index].ingredients.length; i++) {
-                ingArrTag.push(mainList[index].ingredients[i].ingredient)
-            }
-        }
-        const setIngArrTag = new Set(ingArrTag)
-        const ingArrayTag = [...setIngArrTag]
-        for (let index = 0; index < mainList.length; index++) {
-            appArrTag.push(mainList[index].appliance)
-        }
-        const setAppArrTag = new Set(appArrTag)
-        const appArrayTag = [...setAppArrTag]
-        for (let index = 0; index < mainList.length; index++) {
-            for (let i = 0; i < mainList[index].ustensils.length; i++) {
-                ustArrTag.push(mainList[index].ustensils[i])
-            }
-        }
-        const setUstArrTag = new Set(ustArrTag)
-        const ustArrayTag = [...setUstArrTag]
+        refreshSecondaryMenus(ingArrTag, appArrTag, ustArrTag, mainList)
         displayRecipesGrid(mainList)
-        displaySearchbarMenus(ingArrayTag, appArrayTag, ustArrayTag)
     }
 }
