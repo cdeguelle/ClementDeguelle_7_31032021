@@ -2075,6 +2075,100 @@ function displayRedSearchbarMenu (arrayRed) {
 }
 
 // Algorithme de recherche secondarySearch
+function inputByBlueTag (recipesList, input) {
+    const tags = document.querySelectorAll('.tag')
+    const blueTagContent = []
+    const greenTagContent = []
+    const redTagContent = []
+    for (let index = 0; index < tags.length; index++) {
+        const classTag = tags[index].classList
+        if (classTag.contains('tag__blue')) {
+            blueTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__green')) {
+            greenTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__red')) {
+            redTagContent.push(tags[index].textContent)
+        }
+    }
+    const newRecipesList = recipesList.filter(recipe => filterSecondarySearch(recipe, blueTagContent, greenTagContent, redTagContent))
+    const ingArr = []
+    for (let index = 0; index < newRecipesList.length; index++) {
+        for (let i = 0; i < newRecipesList[index].ingredients.length; i++) {
+            ingArr.push(newRecipesList[index].ingredients[i].ingredient)
+        }
+    }
+    const setIngArr = new Set(ingArr)
+    const ingArray = [...setIngArr]
+    if (input.length < 3) {
+        displayBlueSearchbarMenu(ingArray)
+    } else {
+        const list = ingArray.filter(ing => ing.toLowerCase().includes(input))
+        displayBlueSearchbarMenu(list)
+    }
+}
+
+function inputByGreenTag (recipesList, input) {
+    const tags = document.querySelectorAll('.tag')
+    const blueTagContent = []
+    const greenTagContent = []
+    const redTagContent = []
+    for (let index = 0; index < tags.length; index++) {
+        const classTag = tags[index].classList
+        if (classTag.contains('tag__blue')) {
+            blueTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__green')) {
+            greenTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__red')) {
+            redTagContent.push(tags[index].textContent)
+        }
+    }
+    const newRecipesList = recipesList.filter(recipe => filterSecondarySearch(recipe, blueTagContent, greenTagContent, redTagContent))
+    const appArr = []
+    for (let index = 0; index < newRecipesList.length; index++) {
+        appArr.push(newRecipesList[index].appliance)
+    }
+    const setAppArr = new Set(appArr)
+    const appArray = [...setAppArr]
+    if (input.length < 3) {
+        displayGreenSearchbarMenu(appArray)
+    } else {
+        const list = appArray.filter(app => app.toLowerCase().includes(input))
+        displayGreenSearchbarMenu(list)
+    }
+}
+
+function inputByRedTag (recipesList, input) {
+    const tags = document.querySelectorAll('.tag')
+    const blueTagContent = []
+    const greenTagContent = []
+    const redTagContent = []
+    for (let index = 0; index < tags.length; index++) {
+        const classTag = tags[index].classList
+        if (classTag.contains('tag__blue')) {
+            blueTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__green')) {
+            greenTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__red')) {
+            redTagContent.push(tags[index].textContent)
+        }
+    }
+    const newRecipesList = recipesList.filter(recipe => filterSecondarySearch(recipe, blueTagContent, greenTagContent, redTagContent))
+    const ustArr = []
+    for (let index = 0; index < newRecipesList.length; index++) {
+        for (let i = 0; i < newRecipesList[index].ustensils.length; i++) {
+            ustArr.push(newRecipesList[index].ustensils[i])
+        }
+    }
+    const setUstArr = new Set(ustArr)
+    const ustArray = [...setUstArr]
+    if (input.length < 3) {
+        displayRedSearchbarMenu(ustArray)
+    } else {
+        const list = ustArray.filter(ust => ust.toLowerCase().includes(input))
+        displayRedSearchbarMenu(list)
+    }
+}
+
 // Blue
 blueSearchbar.addEventListener('input', e => {
     const input = e.target.value.toLowerCase()
@@ -2091,8 +2185,15 @@ blueSearchbar.addEventListener('input', e => {
     if (input.length >= 3 && mainInput.length < 3) {
         const newIngList = ingArray.filter(ing => ing.toLowerCase().includes(input))
         displayBlueSearchbarMenu(newIngList)
+        if (tagContainer.childElementCount > 0) {
+            inputByBlueTag(recipes, input)
+        }
     } else if (input.length < 3 && mainInput.length < 3) {
-        displayBlueSearchbarMenu(ingArray)
+        if (tagContainer.childElementCount === 0) {
+            displayBlueSearchbarMenu(ingArray)
+        } else if (tagContainer.childElementCount > 0) {
+            inputByBlueTag(recipes, input)
+        }
     } else if (input.length >= 3 && mainInput.length >= 3) {
         ingArr = []
         for (let index = 0; index < newRecipesList.length; index++) {
@@ -2131,8 +2232,15 @@ greenSearchbar.addEventListener('input', e => {
     if (input.length >= 3 && mainInput.length < 3) {
         const newAppList = appArray.filter(app => app.toLowerCase().includes(input))
         displayGreenSearchbarMenu(newAppList)
+        if (tagContainer.childElementCount > 0) {
+            inputByGreenTag(recipes, input)
+        }
     } else if (input.length < 3 && mainInput.length < 3) {
-        displayGreenSearchbarMenu(appArray)
+        if (tagContainer.childElementCount === 0) {
+            displayGreenSearchbarMenu(appArray)
+        } else if (tagContainer.childElementCount > 0) {
+            inputByGreenTag(recipes, input)
+        }
     } else if (input.length >= 3 && mainInput.length >= 3) {
         appArr = []
         for (let index = 0; index < newRecipesList.length; index++) {
@@ -2169,8 +2277,15 @@ redSearchbar.addEventListener('input', e => {
     if (input.length >= 3 && mainInput < 3) {
         const newUstList = ustArray.filter(ust => ust.toLowerCase().includes(input))
         displayRedSearchbarMenu(newUstList)
+        if (tagContainer.childElementCount > 0) {
+            inputByRedTag(recipes, input)
+        }
     } else if (input.length < 3 && mainInput < 3) {
-        displayRedSearchbarMenu(ustArray)
+        if (tagContainer.childElementCount === 0) {
+            displayRedSearchbarMenu(ustArray)
+        } else if (tagContainer.childElementCount > 0) {
+            inputByRedTag(recipes, input)
+        }
     } else if (input.length >= 3 && mainInput.length >= 3) {
         ustArr = []
         for (let index = 0; index < newRecipesList.length; index++) {
