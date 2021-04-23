@@ -1928,6 +1928,7 @@ function displayRecipesGrid (array) {
 }
 
 // Algorithme de recherche mainSearch
+// Filtre
 function filterMainSearch (recipe, input) {
     if (recipe.name.toLowerCase().includes(input) || recipe.description.toLowerCase().includes(input)) {
         return true
@@ -1939,6 +1940,22 @@ function filterMainSearch (recipe, input) {
         }
     }
     return false
+}
+
+// Tri
+function sortRecipesGrid (recipesList) {
+    for (let index = 0; index < recipesList.length; index++) {
+        let i = index + 1
+        while (recipesList[index] > recipesList[i]) {
+            const temp = recipesList[index]
+            recipesList[index] = recipesList[i]
+            recipesList[i] = temp
+            i++
+        }
+    }
+    for (let index = 0; index < recipesList.length; index++) {
+        displayRecipesGrid(recipesList)
+    }
 }
 
 // Contenu des barres de recherches secondaires
