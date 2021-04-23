@@ -20,15 +20,16 @@
         <nav id="navigation">
             <div id="main">
                 <label for="main__searchbar"></label>
-                <input type="search" id="main__searchbar" name="searchbar" aria-label="Search through site content" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
+                <input type="search" id="main__searchbar" name="searchbar" aria-label="Search through site content" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette" minlength="3">
                 <button id="main__button">
                     <img src="./PNG/loupe.png" alt="Rechercher">
                 </button>
+                <div id="tag-container"></div>
             </div>
             <div id="secondary">
                 <div id="secondary-blue">
                     <label for="secondary-blue__searchbar"></label>
-                    <input type="search" id="secondary-blue__searchbar" name="searchbar" aria-label="Search through site content" placeholder="Ingredients">
+                    <input type="search" id="secondary-blue__searchbar" class="input" name="searchbar" aria-label="Search through site content" placeholder="Ingredients" minlength="3">
                     <button id="secondary-blue__button" class="secondary__button">
                         <img src="./PNG/chevron.png" alt="Rechercher">
                     </button>
@@ -36,7 +37,7 @@
                 </div>
                 <div id="secondary-green">
                     <label for="secondary-green__searchbar"></label>
-                    <input type="search" id="secondary-green__searchbar" name="searchbar" aria-label="Search through site content" placeholder="Appareil">
+                    <input type="search" id="secondary-green__searchbar" class="input" name="searchbar" aria-label="Search through site content" placeholder="Appareils" minlength="3">
                     <button id="secondary-green__button" class="secondary__button">
                         <img src="./PNG/chevron.png" alt="Rechercher">
                     </button>
@@ -44,7 +45,7 @@
                 </div>
                 <div id="secondary-red">
                     <label for="secondary-red__searchbar"></label>
-                    <input type="search" id="secondary-red__searchbar" name="searchbar" aria-label="Search through site content" placeholder="Ustensiles">
+                    <input type="search" id="secondary-red__searchbar" class="input" name="searchbar" aria-label="Search through site content" placeholder="Ustensiles" minlength="3">
                     <button id="secondary-red__button" class="secondary__button">
                         <img src="./PNG/chevron.png" alt="Rechercher">
                     </button>
@@ -56,6 +57,9 @@
 
     <main>
         <section id="recipes-grid"></section>
+        <section id="no-result">
+            Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.
+        </section>
     </main>
 <script src="https://kit.fontawesome.com/7de816d9e9.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="./assets/javascript/recipes.js"></script> 

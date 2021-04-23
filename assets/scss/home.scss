@@ -32,18 +32,28 @@
         margin: 20px;
     }
     &__title {
-        font-size: 1.2em;
+        font-size: 1em;
         max-width: 250px;
     }
     &__duration {
+        display: flex;
         &--icon {
             margin-right: 5px;
+            height: 20px;
         }
     }
     &__body {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         margin: 20px;
+        padding-right: 5px;
+    }
+    &__ingredients {
+        font-size: 0.8em;
+        list-style: none;
+        &--item {
+            margin-bottom: 5px;
+        }
     }
     &__description {
         font-size: 0.8em;
@@ -54,4 +64,11 @@
         text-align: justify;
         text-overflow: ellipsis;
     }
+}
+
+#no-result {
+    display: none;
+    justify-content: center;
+    margin-top: 80px;
+    font-size: 2em;
 }

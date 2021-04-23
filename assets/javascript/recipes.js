@@ -1,7 +1,8 @@
+/* eslint-disable no-prototype-builtins */
 const recipes = [
     {
         id: 1,
-        name: 'Limonade de Coco',
+        name: 'Limonade de coco',
         servings: 1,
         ingredients: [
             {
@@ -20,17 +21,18 @@ const recipes = [
             },
             {
                 ingredient: 'Sucre',
-                quantite: 30,
-                unit: 'grammes'
+                quantity: 30,
+                unit: 'g'
             },
             {
-                ingredient: 'Glaçons'
+                ingredient: 'Glaçons',
+                quantity: 2
             }
         ],
         time: 10,
-        description: "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée",
+        description: "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la Crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée",
         appliance: 'Blender',
-        ustensils: ['cuillère à Soupe', 'verres', 'presse citron']
+        ustensils: ['Cuillère à soupe', 'verres', 'presse citron']
     },
     {
         id: 2,
@@ -40,7 +42,7 @@ const recipes = [
             {
                 ingredient: 'Thon Rouge (ou blanc)',
                 quantity: 200,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Concombre',
@@ -52,14 +54,14 @@ const recipes = [
             },
             {
                 ingredient: 'Carotte',
-                quantite: 1
+                quantity: 1
             },
             {
                 ingredient: 'Citron Vert',
                 quantity: 5
             },
             {
-                ingredient: 'Lait de Coco',
+                ingredient: 'Lait de coco',
                 quantity: 100,
                 unit: 'ml'
             }
@@ -100,9 +102,9 @@ const recipes = [
             }
         ],
         time: 80,
-        description: "Découper le poulet en morceaux, les faire dorer dans une cocotte avec de l'huile d'olive. Salez et poivrez. Une fois doré, laisser cuire en ajoutant de l'eau. Au bout de 30 minutes, ajouter le coulis de tomate, le lait de coco ainsi que le poivron et l'oignon découpés en morceaux. Laisser cuisiner 30 minutes de plus. Servir avec du riz",
+        description: "Découper le poulet en morceaux, les faire dorer dans une Cocotte avec de l'Huile d'olive. Salez et poivrez. Une fois doré, laisser cuire en ajoutant de l'eau. Au bout de 30 minutes, ajouter le coulis de tomate, le lait de coco ainsi que le poivron et l'oignon découpés en morceaux. Laisser cuisiner 30 minutes de plus. Servir avec du riz",
         appliance: 'Cocotte',
-        ustensils: ['couteau']
+        ustensils: ['Couteau']
     }, {
         id: 4,
         name: 'Salade de riz',
@@ -111,12 +113,12 @@ const recipes = [
             {
                 ingredient: 'Riz blanc',
                 quantity: 500,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Thon en miettes',
                 quantity: 200,
-                unit: 'grammes'
+                unit: 'g'
             }, {
                 ingredient: 'Tomate',
                 quantity: 2
@@ -128,7 +130,7 @@ const recipes = [
             {
                 ingredient: 'Maïs',
                 quantity: 300,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Vinaigrette',
@@ -153,7 +155,7 @@ const recipes = [
             {
                 ingredient: 'Thon en miettes',
                 quantity: 130,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Tomate',
@@ -167,7 +169,7 @@ const recipes = [
             {
                 ingredient: 'gruyère râpé',
                 quantity: 100,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Moutarde de Dijon',
@@ -176,9 +178,9 @@ const recipes = [
             }
         ],
         time: 45,
-        description: 'Etaler la pâte feuilleté aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de crème fraiche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes',
+        description: 'Etaler la pâte feuilleté aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de Crème fraiche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes',
         appliance: 'Four',
-        ustensils: ['moule à tarte', 'râpe à fromage', 'couteau']
+        ustensils: ['moule à tarte', 'râpe à fromage', 'Couteau']
     },
     {
         id: 6,
@@ -205,7 +207,7 @@ const recipes = [
             {
                 ingredient: 'Sucre en Poudre',
                 quantity: 100,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Sucre vanillé',
@@ -215,7 +217,7 @@ const recipes = [
             }
         ],
         time: 50,
-        description: "Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la crème fraiche aux oeufs. Une fois que tout est pret, étalez la tarte dans le moule. N'oubliez pas de piquer le fond avec une fourchette avant depositionner les pommes sur la tarte. Finallement verser la préparation à base d'oeufs et de crême fraiche. Laisser cuire au four pendant 30 minutes",
+        description: "Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la Crème fraiche aux oeufs. Une fois que tout est pret, étalez la tarte dans le moule. N'oubliez pas de piquer le fond avec une fourchette avant depositionner les pommes sur la tarte. Finallement verser la préparation à base d'oeufs et de Crème fraiche. Laisser cuire au four pendant 30 minutes",
         appliance: 'Four',
         ustensils: ['moule à tarte', 'saladier', 'fourchette']
     }, {
@@ -230,7 +232,7 @@ const recipes = [
             {
                 ingredient: 'Chocolat au lait',
                 quantity: 300,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Crème liquide',
@@ -240,7 +242,7 @@ const recipes = [
             {
                 ingredient: 'Beurre',
                 quantity: '30',
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Fraise',
@@ -248,7 +250,7 @@ const recipes = [
             }
         ],
         time: 50,
-        description: "Etaler la pate dans les moules à tartelette. Faire cuire la pate 30 minutes. Découper le chocolat en morceau et le faire chauffer, y ajouter la crême liquide, ajouter le beurre et remuer jusqu'à avoir une pâte homogène. Verser la pate sur les tartelettes. Couper les fraises en 2 et les positionner sur ",
+        description: "Etaler la pate dans les moules à tartelette. Faire cuire la pate 30 minutes. Découper le chocolat en morceau et le faire chauffer, y ajouter la Crème liquide, ajouter le beurre et remuer jusqu'à avoir une pâte homogène. Verser la pate sur les tartelettes. Couper les fraises en 2 et les positionner sur ",
         appliance: 'Four',
         ustensils: ['moule à tartelettes (6)', 'casserolle']
     }, {
@@ -259,17 +261,17 @@ const recipes = [
             {
                 ingredient: 'Noix',
                 quantity: '180',
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Chocolat noir',
                 quantity: 150,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Beurre',
                 quantity: 120,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Oeuf',
@@ -278,17 +280,17 @@ const recipes = [
             {
                 ingredient: 'Sucre en Poudre',
                 quantity: '110',
-                unit: 'grammes'
+                unit: 'g'
             },
             {
-                ingredient: 'farine',
+                ingredient: 'Farine',
                 quantity: 90,
-                unit: 'grammes'
+                unit: 'g'
             }
 
         ],
         time: 60,
-        description: "Hachez les noix grossièrement. Faire fondre le chocolat avec le beurre. Mélanger les oeuf et le sucre et mélanger au chocolat. Ajouter la farine. Mélanger afin d'avoir quelque chose d'homogène puis incorporer les noix. Verser la préparation dans un moule de préférence rectangulaire. Cuire 2O à 25 minutes à 180°. Sortez du four et attendez quelques minutes pour démouler. Servir avec une boule de glace pour plus de gourmandise.",
+        description: "Hachez les noix grossièrement. Faire fondre le chocolat avec le beurre. Mélanger les oeuf et le sucre et mélanger au chocolat. Ajouter la Farine. Mélanger afin d'avoir quelque chose d'homogène puis incorporer les noix. Verser la préparation dans un moule de préférence rectangulaire. Cuire 2O à 25 minutes à 180°. Sortez du four et attendez quelques minutes pour démouler. Servir avec une boule de glace pour plus de gourmandise.",
         appliance: 'Four',
         ustensils: ['moule à gateaux', 'casserolle']
     },
@@ -307,7 +309,7 @@ const recipes = [
             {
                 ingredient: 'Fromage de chèvre',
                 quantity: 150,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Vinaigre Balsamic'
@@ -320,9 +322,9 @@ const recipes = [
             }
         ],
         time: 15,
-        description: "Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamic et l'huile d'olives à votre gout.",
+        description: "Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamic et l'Huile d'olive à votre gout.",
         appliance: 'Saladier',
-        ustensils: ['cuillère en bois', 'couteau']
+        ustensils: ['cuillère en bois', 'Couteau']
     },
     {
         id: 10,
@@ -346,7 +348,7 @@ const recipes = [
             {
                 ingredient: 'Oignon',
                 quantity: 300,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Vin blanc sec',
@@ -357,7 +359,7 @@ const recipes = [
         time: 60,
         description: "Commencer par cuire les pommes de terre dans l'eau bouillante. Puis epluchez les et coupez les en rondelles. Emincer les oignons puis les faire dorer dans du beurre. Ajouter le jambon fumé coupé en en morceaux ainsi que les pommes de terres. Salez, poivrez à votre gout ( et celui de vos convives ) Laissez cuisiner durant environ 10 minutes puis ajouter le vin blanc. Après 5 minutes, mettre le tout dans un plat à gratin. Coupez le rebelochon, soit en tranches, soit le couper en 2 dans le sens de l'épaisseur et recouvrir les pommes de terre. Cuire au four (environ 220°) durant 25 minutes. C'est prêt !",
         appliance: 'Four',
-        ustensils: ['plat à gratin', 'couteau', 'Économe']
+        ustensils: ['plat à gratin', 'Couteau', 'Économe']
     }, {
         id: 11,
         name: 'Salade tomate, mozzarella et pommes',
@@ -366,12 +368,12 @@ const recipes = [
             {
                 ingredient: 'Tomates cerises',
                 quantity: 250,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Mozzarella',
                 quantity: 150,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Jambon de parme',
@@ -395,7 +397,7 @@ const recipes = [
         time: 10,
         description: 'Commencer par couper les feuilles de salade, ajouter les tomates cerises et le fromage découpé en cubes ou en boules avec la cuillère à melon. Découper le jambon de parme en fines lamelles. Ajouter la pomme elle aussi découpée en petit morceaux. Assaisonnez à votre gout. ',
         appliance: 'Saladier',
-        ustensils: ['couteau', 'cuillère à melon']
+        ustensils: ['Couteau', 'cuillère à melon']
     }, {
         id: 12,
         name: 'Compote pomme rhubarbe',
@@ -404,7 +406,7 @@ const recipes = [
             {
                 ingredient: 'Rhubarbe',
                 quantity: 160,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Pommes',
@@ -423,8 +425,8 @@ const recipes = [
         ],
         time: 40,
         description: "Éplucher les fruits et les couper en morceaux, les mettre dans une casserolle en ajoutant l'eau et le sucre vanillé. Laisser cuire 15 minutes en remuant régulièrement.",
-        appliance: 'Casserole',
-        ustensils: ['couteau', 'économe']
+        appliance: 'Casserolle',
+        ustensils: ['Couteau', 'économe']
     },
     {
         id: 13,
@@ -434,12 +436,12 @@ const recipes = [
             {
                 ingredient: 'Mâche',
                 quantity: 60,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Pommes de terre',
                 quantity: 200,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Échalote',
@@ -449,18 +451,18 @@ const recipes = [
             {
                 ingredient: 'Vinaigre de cidre',
                 quantity: 1,
-                unit: 'cuillère à soupe'
+                unit: 'Cuillère à soupe'
             },
             {
-                ingredient: "huile d'olive",
+                ingredient: "Huile d'olive",
                 quantity: 2,
-                unit: 'cuillère à soupe'
+                unit: 'Cuillère à soupe'
             }
         ],
         time: 40,
-        description: "Cuire les pommes de terre environ 30 minutes. Découper les échalottes finement. Durant la cuisson des pommes de terre. Préparez la vinaigrette avec l'huile d'olive et le vinaigre de cidre. Salez poivrez à discrétion. Dans un saladier, mettre le mâche. Ajouter",
-        appliance: 'Casserole',
-        ustensils: ['couteau', 'saladier', 'cuillère en bois']
+        description: "Cuire les pommes de terre environ 30 minutes. Découper les échalottes finement. Durant la cuisson des pommes de terre. Préparez la vinaigrette avec l'Huile d'olive et le vinaigre de cidre. Salez poivrez à discrétion. Dans un saladier, mettre le mâche. Ajouter",
+        appliance: 'Casserolle',
+        ustensils: ['Couteau', 'saladier', 'cuillère en bois']
     },
     {
         id: 14,
@@ -474,7 +476,7 @@ const recipes = [
             {
                 ingredient: 'Farine de blé noir',
                 quantity: 130,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Oeuf',
@@ -484,7 +486,7 @@ const recipes = [
             {
                 ingredient: 'Fromage à raclette',
                 quantity: 300,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Oignon',
@@ -493,14 +495,14 @@ const recipes = [
             {
                 ingredient: 'Beurre',
                 quantity: 75,
-                unit: 'grammes'
+                unit: 'g'
             }
 
         ],
         time: 100,
-        description: "Mélanger la farine et les oeufs, faire fondre 25 grammes de beurre et ajouter à la pâte. Ajouter du sel. Laisser reposer 1 heure. Faire les galettes et laisser refroidire. Faire chauffer les saucisses avec du beurre et l'oignon. Enrouler les saucisses dans les crêpes avec une partie du fromage. Mettre le reste du fromage à raclette par dessus les crêpes. Passer four pendant 20 minutes",
+        description: "Mélanger la Farine et les oeufs, faire fondre 25 g de beurre et ajouter à la pâte. Ajouter du sel. Laisser reposer 1 heure. Faire les galettes et laisser refroidire. Faire chauffer les saucisses avec du beurre et l'oignon. Enrouler les saucisses dans les crêpes avec une partie du fromage. Mettre le reste du fromage à raclette par dessus les crêpes. Passer four pendant 20 minutes",
         appliance: 'Four',
-        ustensils: ['poelle à frire', 'couteau']
+        ustensils: ['poelle à frire', 'Couteau']
     },
     {
         id: 15,
@@ -514,7 +516,7 @@ const recipes = [
             {
                 ingredient: 'Farine',
                 quantity: 250,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Lait',
@@ -524,12 +526,12 @@ const recipes = [
             {
                 ingredient: 'Beurre salé',
                 quantity: 30,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Chocolat au lait',
                 quantity: 100,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Banane',
@@ -537,7 +539,7 @@ const recipes = [
             }
         ],
         time: 60,
-        description: "Mélangez dans un saladier, la farine, les oeufs, et le lait. Battez jusqu'à avoir une masse homogène. Pendant ce temps faites fondre le beurre et ajoutez en une partie à la pâte à crêpes. Faire fondre le chocolat ( avec le reste du beurre salé ). Lorsque vous chauffez les crêpes. Ajouter le chocolat fondu et les bananes coupées en rondelles. Ajoutez une touche de chantilly pour les gourmands",
+        description: "Mélangez dans un saladier, la Farine, les oeufs, et le lait. Battez jusqu'à avoir une masse homogène. Pendant ce temps faites fondre le beurre et ajoutez en une partie à la pâte à crêpes. Faire fondre le chocolat ( avec le reste du beurre salé ). Lorsque vous chauffez les crêpes. Ajouter le chocolat fondu et les bananes coupées en rondelles. Ajoutez une touche de chantilly pour les gourmands",
         appliance: 'Poële à crêpe',
         ustensils: ['saladier', 'louche', 'cuillère en bois']
     },
@@ -549,17 +551,17 @@ const recipes = [
             {
                 ingredient: 'Tomate',
                 quantity: 500,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Mozzarella',
                 quantity: 250,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Pennes',
                 quantity: 500,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Basilic',
@@ -567,15 +569,15 @@ const recipes = [
                 unit: 'tiges'
             },
             {
-                ingredient: "huile d'olives",
+                ingredient: "Huile d'olive",
                 quantity: 2,
-                unit: 'cuillère à soupe'
+                unit: 'Cuillère à soupe'
             }
         ],
         time: 45,
         description: "Faire cuire les pâtes si vous n'avez pas de pennes des coquillettes peuvent faire l'affaire. Découper les tomates en petits morceaux, soit en tranches soit en dés. Coupez le basilic en petites morceaux et mélangez le aux tomates.  Coupez la mozzarella en tranche. Préchauffez le four à 200°. Alternez entre couches de pattes et couches de tomates, terminez par une couche de pates et recouvrir du fromage. Laisser au four 30 minutes et régalez vous ! Une recette simple qui fera plaisir au petits comme aux grands.",
         appliance: 'Four',
-        ustensils: ['plat à gratin', 'couteau', 'râpe à fromage']
+        ustensils: ['plat à gratin', 'Couteau', 'râpe à fromage']
     },
     {
         id: 17,
@@ -585,7 +587,7 @@ const recipes = [
             {
                 ingredient: 'Fraise',
                 quantity: 500,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Pastèque',
@@ -607,7 +609,7 @@ const recipes = [
         time: 15,
         description: 'Coupez les fraises en morceaux, découpez la chaire de la pastèque en retirant les pépins. Mettre le tout dans le blender. Ajouter un cuillière à soupe de juste de citron ainsi que les glaçons. Ajoutez quelques fueilles de menthe pour plus de fraicheur. Mixez le tout. Servir et déguster.',
         appliance: 'Blender',
-        ustensils: ['verres', 'couteau', 'presse citron']
+        ustensils: ['verres', 'Couteau', 'presse citron']
     },
     {
         id: 18,
@@ -632,7 +634,7 @@ const recipes = [
         time: 10,
         description: "Séparez 1/5ème d'Ananas ( une belle tranche qui servira pour la décoration des verres ), mettre le reste coupé en cubes au blender, ajouter la glace à la vanille et le lait. Mixez. Servir et décorer avec l'ananas restant. C'est prêt",
         appliance: 'Blender',
-        ustensils: ['verres', 'couteau']
+        ustensils: ['verres', 'Couteau']
     },
     {
         id: 19,
@@ -655,7 +657,7 @@ const recipes = [
             {
                 ingredient: 'Sucre glace',
                 quantity: 30,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Banane',
@@ -665,7 +667,7 @@ const recipes = [
         time: 0,
         description: "Coupez les fruits en morceaux, ajouter le jus de citron et le lait ainsi que le sucre glace. Mixez. Ajoutez des glaçons si le lait n'a pas été mis au frais.",
         appliance: 'Blender',
-        ustensils: ['couteau', 'verres', 'presse citron']
+        ustensils: ['Couteau', 'verres', 'presse citron']
     },
     {
         id: 20,
@@ -675,31 +677,31 @@ const recipes = [
             {
                 ingredient: 'Tagliatelles',
                 quantity: 500,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Lardons',
                 quantity: 150,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Crème fraiche',
                 quantity: 200,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Parmesan',
                 quantity: 100,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
-                ingredient: "huile d'olive",
+                ingredient: "Huile d'olive",
                 quantity: 1,
                 unit: 'cuillères à soupe'
             }
         ],
         time: 30,
-        description: "Faire cuire les pates comme indiqué sur le paquet. Dorer les lardons dans une sauteuse avec l'huile d'olive. Ajouter la crême fraiche et baisser le feu au minimum. Quand les Tagliatelles sont prêtes les mettre dans la sauteuse et bien mélanger le tout en ajoutant le jaune d'oeuf. Servir et ajouter le parmesan râpé.",
+        description: "Faire cuire les pates comme indiqué sur le paquet. Dorer les lardons dans une sauteuse avec l'Huile d'olive. Ajouter la Crème fraiche et baisser le feu au minimum. Quand les Tagliatelles sont prêtes les mettre dans la sauteuse et bien mélanger le tout en ajoutant le jaune d'oeuf. Servir et ajouter le parmesan râpé.",
         appliance: 'Sauteuse',
         ustensils: ['râpe à fromage', 'cuillère en bois']
     },
@@ -711,7 +713,7 @@ const recipes = [
             {
                 ingredient: 'Spaghettis',
                 quantity: 400,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Oignon',
@@ -720,12 +722,12 @@ const recipes = [
             {
                 ingredient: 'Coulis de tomate',
                 quantity: 300,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Viande hachée 1% de matière grasse',
                 quantity: 400,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Vin rouge',
@@ -739,9 +741,9 @@ const recipes = [
             }
         ],
         time: 30,
-        description: 'Cuisiner la viande hachée dans une poelle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la crème fraiche à la viande hachée. Serivir.',
-        appliance: 'Casserolle.',
-        ustensils: ['Cuillère en bois', 'louche', 'couteau']
+        description: 'Cuisiner la viande hachée dans une poelle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la Crème fraiche à la viande hachée. Serivir.',
+        appliance: 'Casserolle',
+        ustensils: ['Cuillère en bois', 'louche', 'Couteau']
     },
     {
         id: 22,
@@ -751,17 +753,17 @@ const recipes = [
             {
                 ingredient: 'Beurre',
                 quantity: 160,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Chocolat noir',
                 quantity: 200,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Farine',
                 quantity: 50,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Oeuf',
@@ -770,11 +772,11 @@ const recipes = [
             {
                 ingredient: 'Sucre',
                 quantity: 150,
-                unit: 'grammes'
+                unit: 'g'
             }
         ],
         time: 30,
-        description: "Faire fondre le chocolat et le beurre au bain marie. Dans un saladier battre les oeufs avec le sucre jusqu'à obtenir une texture de type mousse. Ajouter la farine ainsi que le mélange de beurre et chocolat fondu. Beurrez le moule à gateaux. Mettre au four préchauffé à 200° puis faites chauffer pendant 15 minutes. C'est prêt. Servir avec une boule de glace ou une crême dessert.",
+        description: "Faire fondre le chocolat et le beurre au bain marie. Dans un saladier battre les oeufs avec le sucre jusqu'à obtenir une texture de type mousse. Ajouter la Farine ainsi que le mélange de beurre et chocolat fondu. Beurrez le moule à gateaux. Mettre au four préchauffé à 200° puis faites chauffer pendant 15 minutes. C'est prêt. Servir avec une boule de glace ou une Crème dessert.",
         appliance: 'Four',
         ustensils: ['moule à gateaux', 'fouet', 'casserolle']
     },
@@ -786,17 +788,17 @@ const recipes = [
             {
                 ingredient: 'Pâte brisée',
                 quantity: 200,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Lardons',
                 quantity: 200,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Beurre',
                 quantity: 30,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Oeuf',
@@ -814,7 +816,7 @@ const recipes = [
             }
         ],
         time: 60,
-        description: "Etaler la pate dans un moule et la piquer.Parsemer de beurre. Faire chauffer les lardon dans une poêle. Battre les oeufs en ajoutant la crème fraîche et le lait. Finalement ajouter les lardons, salez poivrez à votre gout. Verser l'ensemble sur la pâte. Cuire environ 50 minutes.",
+        description: "Etaler la pate dans un moule et la piquer.Parsemer de beurre. Faire chauffer les lardon dans une poêle. Battre les oeufs en ajoutant la Crème fraîche et le lait. Finalement ajouter les lardons, salez poivrez à votre gout. Verser l'ensemble sur la pâte. Cuire environ 50 minutes.",
         appliance: 'Four',
         ustensils: ['moule à gateaux', 'rouleau à patisserie', 'fouet']
     },
@@ -826,12 +828,12 @@ const recipes = [
             {
                 ingredient: 'Thon en miettes',
                 quantity: 160,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Maïs',
                 quantity: 60,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Tomate',
@@ -844,7 +846,7 @@ const recipes = [
             {
                 ingredient: 'Macaronis',
                 quantity: 300,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Mayonnaise',
@@ -855,7 +857,7 @@ const recipes = [
         time: 40,
         description: 'Découper le concombre et les tomates en dés, les mettre dans un saladier avec le mais et les miettes de poisson, ajouter les pates. Ajouter la mayonnaise. Mélanger le tout et servir frais.',
         appliance: 'Saladier',
-        ustensils: ['couteau', 'cuillère en bois']
+        ustensils: ['Couteau', 'cuillère en bois']
     },
     {
         id: 25,
@@ -865,22 +867,22 @@ const recipes = [
             {
                 ingredient: 'Sucre',
                 quantity: 100,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Beurre',
                 quantity: 100,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Farine',
                 quantity: 100,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Chocolat noir en pepites',
                 quantity: 100,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Oeuf',
@@ -888,7 +890,7 @@ const recipes = [
             }
         ],
         time: 30,
-        description: "Faire fondre le beurre et le mélanger avec le sucre. Finalement ajouter l'oeuf. Ajouter la farine tout en mélangeant peu pa peu pour avoir une masse sans grumaux. Ajouter les pépites de chocolat. Faire, une plaque de cuisson de petites boules pour les cookies. Mettre au four à 180° pour 10 minutes.",
+        description: "Faire fondre le beurre et le mélanger avec le sucre. Finalement ajouter l'oeuf. Ajouter la Farine tout en mélangeant peu pa peu pour avoir une masse sans grumaux. Ajouter les pépites de chocolat. Faire, une plaque de cuisson de petites boules pour les cookies. Mettre au four à 180° pour 10 minutes.",
         appliance: 'Four',
         ustensils: ['fouet', 'saladier', 'plaque de cuisson']
     },
@@ -906,7 +908,7 @@ const recipes = [
                 quantity: 1
             },
             {
-                ingredient: "Huile d'olives"
+                ingredient: "Huile d'olive"
             },
             {
                 ingredient: 'Oignon',
@@ -919,9 +921,9 @@ const recipes = [
             }
         ],
         time: 25,
-        description: "Verser de l'huile dans une cocotte minute couper les légumes et les verser dans l'huile chaude. Laisser cuire et remuer pendant 10 minutes. Passer aux mixer. Servir.",
+        description: "Verser de l'huile dans une Cocotte minute couper les légumes et les verser dans l'huile chaude. Laisser cuire et remuer pendant 10 minutes. Passer aux mixer. Servir.",
         appliance: 'Mixer',
-        ustensils: ['cocotte minute', 'couteau']
+        ustensils: ['Cocotte minute', 'Couteau']
     },
     {
         id: 27,
@@ -939,7 +941,7 @@ const recipes = [
             {
                 ingredient: 'Crème fraîche',
                 quantity: 4,
-                unit: 'cuillère à soupe'
+                unit: 'Cuillère à soupe'
             },
             {
                 ingredient: 'Vermicelles',
@@ -949,13 +951,13 @@ const recipes = [
             {
                 ingredient: 'Beurre salé',
                 quantity: 50,
-                unit: 'grammes'
+                unit: 'g'
             }
         ],
         time: 15,
-        description: "Faire fondre l'oseille avec du beurre demi sel, ajouter un litre d'eau. Ajouter les vermicelles. Laisser cuire. une foit prêt, sortir du feu et après 5 minutes ajouter le jaune d'oeuf et la crême fraîche",
+        description: "Faire fondre l'oseille avec du beurre demi sel, ajouter un litre d'eau. Ajouter les vermicelles. Laisser cuire. une foit prêt, sortir du feu et après 5 minutes ajouter le jaune d'oeuf et la Crème fraîche",
         appliance: 'Casserolle',
-        ustensils: ['couteau', 'cuillère en bois']
+        ustensils: ['Couteau', 'cuillère en bois']
     },
     {
         id: 28,
@@ -969,28 +971,28 @@ const recipes = [
             {
                 ingredient: 'Pommes de terre',
                 quantity: 400,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Oseille',
                 quantity: 75,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Beurre',
                 quantity: 50,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
-                ingredient: 'Crême fraîche',
+                ingredient: 'Crème fraîche',
                 quantity: 10,
                 unit: 'cl'
             }
         ],
         time: 80,
-        description: "Emincer les blanc de poireaux et les faire chauffer dans 25 grammes de beurre. AJouter les pommes de terres coupées en morceaux. Ajouter l'eau et laisser mijoter pour 45 minutes. Chauffer l'oseille avec le beurre restant puis incorporer le tout. Mixez. Ajoutez la crème. Bon appetit.",
+        description: "Emincer les blanc de poireaux et les faire chauffer dans 25 g de beurre. AJouter les pommes de terres coupées en morceaux. Ajouter l'eau et laisser mijoter pour 45 minutes. Chauffer l'oseille avec le beurre restant puis incorporer le tout. Mixez. Ajoutez la Crème. Bon appetit.",
         appliance: 'Mixer',
-        ustensils: ['casserolle', 'couteau']
+        ustensils: ['casserolle', 'Couteau']
     },
     {
         id: 29,
@@ -1019,7 +1021,7 @@ const recipes = [
             }
         ],
         time: 30,
-        description: "Prendre les pois chiches, les mettre dans le mixer avec de l'huile d'olive, ajouter le jus des 2 citrons et du paprika selon le gout.",
+        description: "Prendre les pois chiches, les mettre dans le mixer avec de l'Huile d'olive, ajouter le jus des 2 citrons et du paprika selon le gout.",
         appliance: 'Mixer',
         ustensils: ['cuillère en bois', 'presse citron']
     },
@@ -1031,7 +1033,7 @@ const recipes = [
             {
                 ingredient: 'Pois Cassé',
                 quantity: 500,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Oignon',
@@ -1044,7 +1046,7 @@ const recipes = [
             }
         ],
         time: 60,
-        description: "Mettre tous les ingrédients dans une cocotte. ajouter de l'eau pour recouvrir l'ensemble et laisser cuirre à petit feur pour 1 heure. Passer au mixer. Salez, poivrez. C'est prêt",
+        description: "Mettre tous les ingrédients dans une Cocotte. ajouter de l'eau pour recouvrir l'ensemble et laisser cuirre à petit feur pour 1 heure. Passer au mixer. Salez, poivrez. C'est prêt",
         appliance: 'Mixer',
         ustensils: ['casserolle', 'cuillère en bois']
     },
@@ -1064,17 +1066,17 @@ const recipes = [
             {
                 ingredient: 'Haricots verts',
                 quantity: 150,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Petits poids',
                 quantity: 100,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Lardons',
                 quantity: 150,
-                unit: 'grammes'
+                unit: 'g'
             }
         ],
         time: 60,
@@ -1105,7 +1107,7 @@ const recipes = [
             {
                 ingredient: 'Gruyère',
                 quantity: 100,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Lait',
@@ -1121,7 +1123,7 @@ const recipes = [
         time: 20,
         description: "Beurrer les tranches de pain, ajouter entre 2 tranches de pain de mie 1 tranche d'émental, une de blanc de dinde, et une autre d'emmental. Dans un récipient, mélanger le gruyère rappé avec le lait et la noix de muscade. Mettre sur les croque monsieux. Placer au four durnat 10 minutes.",
         appliance: 'Four',
-        ustensils: ['râpe à fromage', 'cuillère à Soupe', 'couteau']
+        ustensils: ['râpe à fromage', 'Cuillère à soupe', 'Couteau']
     },
     {
         id: 33,
@@ -1156,7 +1158,7 @@ const recipes = [
         time: 5,
         description: "Mélanger le fromage blanc avec le citron. Ajouter un peu de sel et poivre à votre gout. Faire dorer le pain de mie. Puis étaler le mélange. Ajouter une feuille de salade puis le saumon fumé. C'est prêt.",
         appliance: 'Four',
-        ustensils: ['couteau', 'cuillère en bois']
+        ustensils: ['Couteau', 'cuillère en bois']
     },
     {
         id: 34,
@@ -1166,7 +1168,7 @@ const recipes = [
             {
                 ingredient: 'Patate douce',
                 quantity: 800,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Crème fraîche',
@@ -1182,9 +1184,9 @@ const recipes = [
             }
         ],
         time: 25,
-        description: "Eplucher les patates douces et coupez les en morceaux. Les faire cuire durant 20 minute dans une casserolle d'eau bouillante. Passer au mixer en ajoutant la crème et l'huile d'olive à son gout. Salez, poivrez. Pressez l'orange et ajouter le jus à l'ensemble. Servir.",
+        description: "Eplucher les patates douces et coupez les en morceaux. Les faire cuire durant 20 minute dans une casserolle d'eau bouillante. Passer au mixer en ajoutant la Crème et l'Huile d'olive à son gout. Salez, poivrez. Pressez l'orange et ajouter le jus à l'ensemble. Servir.",
         appliance: 'Mixer',
-        ustensils: ['couteau', 'économe', 'cuillère en bois']
+        ustensils: ['Couteau', 'économe', 'cuillère en bois']
     },
     {
         id: 35,
@@ -1202,7 +1204,7 @@ const recipes = [
             {
                 ingredient: 'Beurre',
                 quantity: 20,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Crème fraîche',
@@ -1221,9 +1223,9 @@ const recipes = [
             }
         ],
         time: 25,
-        description: 'Éplucher les légumes, les couper en morceaux et les mettre à cuire dans une cocotte minute environ 15 minutes. Mixer en ajoutant le beurre, la crème. Ajouter le cumun et la noix de muscade.',
+        description: 'Éplucher les légumes, les couper en morceaux et les mettre à cuire dans une Cocotte minute environ 15 minutes. Mixer en ajoutant le beurre, la Crème. Ajouter le cumun et la noix de muscade.',
         appliance: 'Mixer',
-        ustensils: ['cocotte minute', 'couteau', 'cuillère en bois']
+        ustensils: ['Cocotte minute', 'Couteau', 'cuillère en bois']
     },
     {
         id: 36,
@@ -1251,7 +1253,7 @@ const recipes = [
             {
                 ingredient: 'Gruyère',
                 quantity: 40,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Maïzena',
@@ -1276,10 +1278,10 @@ const recipes = [
             {
                 ingredient: 'Viande hachée',
                 quantity: 600,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
-                ingredient: "Huile d'olives",
+                ingredient: "Huile d'olive",
                 quantity: 25,
                 unit: 'cl'
             },
@@ -1295,14 +1297,14 @@ const recipes = [
             {
                 ingredient: 'Gruyère',
                 quantity: 50,
-                unit: 'grammes'
+                unit: 'g'
             }
 
         ],
         time: 60,
-        description: "Couper les courgettes dans le sens de la longueur. Vider les courgette dans un saladier. Réserver.Faire revenir la chair des courgettes dans 25cl d'huile d'olive. Ajouter l'oignon puis la viande hachée. Mettre la farce dans les courgettes. Ajouter le coulis de tomates. Mettre au four pendant 30 minutes. Avant la fin de la cuisson ajouter le fromage rapé",
+        description: "Couper les courgettes dans le sens de la longueur. Vider les courgette dans un saladier. Réserver.Faire revenir la chair des courgettes dans 25cl d'Huile d'olive. Ajouter l'oignon puis la viande hachée. Mettre la farce dans les courgettes. Ajouter le coulis de tomates. Mettre au four pendant 30 minutes. Avant la fin de la cuisson ajouter le fromage rapé",
         appliance: 'Four',
-        ustensils: ['couteau', 'cuillère en bois', 'Poelle à frire']
+        ustensils: ['Couteau', 'cuillère en bois', 'Poelle à frire']
     },
     {
         id: 38,
@@ -1326,13 +1328,13 @@ const recipes = [
             {
                 ingredient: 'Sucre roux',
                 quantity: 75,
-                unit: 'grammes'
+                unit: 'g'
             }
         ],
         time: 20,
         description: 'Fouettez les oeufs, le sucre et le lait. tremper les tranches de pain. Le cuire au four pendant environ 10 minutes à 180°. Servir',
         appliance: 'Four',
-        ustensils: ['fouet', 'bol', 'Cuillère à Soupe']
+        ustensils: ['fouet', 'bol', 'Cuillère à soupe']
     },
     {
         id: 39,
@@ -1346,23 +1348,23 @@ const recipes = [
             {
                 ingredient: 'Farine',
                 quantity: 100,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Beurre',
                 quantity: 50,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Sucre roux',
                 quantity: 80,
-                unit: 'grammes'
+                unit: 'g'
             }
         ],
         time: 40,
-        description: 'Découper les pommes en dé. Mélanger dans un saladier la farine, le sucre et le beurre. Bien mélanger. Beurrer le moule et ajouter les pommes. Par dessus placez la pate que vous avez obtenu. Cuire 20 minutes au four',
+        description: 'Découper les pommes en dé. Mélanger dans un saladier la Farine, le sucre et le beurre. Bien mélanger. Beurrer le moule et ajouter les pommes. Par dessus placez la pate que vous avez obtenu. Cuire 20 minutes au four',
         appliance: 'Four',
-        ustensils: ['saladier', 'couteau', 'fouet']
+        ustensils: ['saladier', 'Couteau', 'fouet']
     },
     {
         id: 40,
@@ -1406,7 +1408,7 @@ const recipes = [
             {
                 ingredient: 'Chocolat noir',
                 quantity: 100,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Sucre vanillé',
@@ -1427,7 +1429,7 @@ const recipes = [
             {
                 ingredient: 'Chocolat',
                 quantity: 200,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Oeuf',
@@ -1446,7 +1448,7 @@ const recipes = [
         time: 60,
         description: 'Commencez par préparer la mousse au chocolat au moins 2 heures avant. Quand la mousse est prête et a reposée. Alors mouiller les boudoirs dans le jus des poires. Disposer. Alterner : mousse au chocolat, boudoirs et poires. Mettre au frais.',
         appliance: 'Moule à charlotte',
-        ustensils: ['saladier', 'couteau', 'fouet']
+        ustensils: ['saladier', 'Couteau', 'fouet']
     },
     {
         id: 43,
@@ -1456,17 +1458,17 @@ const recipes = [
             {
                 ingredient: 'Pâte brisée',
                 quantity: 200,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Sucre',
                 quantity: 150,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Beurre fondu',
                 quantity: 100,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Oeuf',
@@ -1494,26 +1496,26 @@ const recipes = [
             {
                 ingredient: 'Chocolat',
                 quantity: 200,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Sucre',
                 quantity: 100,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Beurre',
                 quantity: 50,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
-                ingredient: 'farine',
+                ingredient: 'Farine',
                 quantity: 40,
-                unit: 'grammes'
+                unit: 'g'
             }
         ],
         time: 15,
-        description: 'Mélanger la farine et le beurre fondu en ajoutant le lait peu à peu. Ajouter du sucre après la cuisson. Bien mélanger. Ajouter le chocolat en morceaux et laisser chauffer 8 minutes en mélangeant avec une cuillère en bois. Mettre dans des verres',
+        description: 'Mélanger la Farine et le beurre fondu en ajoutant le lait peu à peu. Ajouter du sucre après la cuisson. Bien mélanger. Ajouter le chocolat en morceaux et laisser chauffer 8 minutes en mélangeant avec une cuillère en bois. Mettre dans des verres',
         appliance: 'Casserolle',
         ustensils: ['cuillère en bois']
     },
@@ -1534,16 +1536,16 @@ const recipes = [
             {
                 ingredient: 'Farine',
                 quantity: 30,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Sucre',
                 quantity: 80,
-                unit: 'grammes'
+                unit: 'g'
             }
         ],
         time: 30,
-        description: "Faire bouillir le lait ( on peut y ajouter de l'essence de vanille. Battre les oeufs et le sucre, ajouter la farine puis finalement ajouter le lait chaud. Remettre à feu doux pour faire épaissir en remuant pendant 5 à 10 minutes.",
+        description: "Faire bouillir le lait ( on peut y ajouter de l'essence de vanille. Battre les oeufs et le sucre, ajouter la Farine puis finalement ajouter le lait chaud. Remettre à feu doux pour faire épaissir en remuant pendant 5 à 10 minutes.",
         appliance: 'Casserolle',
         ustensils: ['fouet', 'saladier']
     },
@@ -1555,12 +1557,12 @@ const recipes = [
             {
                 ingredient: 'Farine',
                 quantity: 250,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Sucre',
                 quantity: 150,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Sucre vanillé',
@@ -1579,11 +1581,11 @@ const recipes = [
             {
                 ingredient: 'Pruneaux',
                 quantity: 100,
-                unit: 'grammes'
+                unit: 'g'
             }
         ],
         time: 60,
-        description: 'Mélanger la farine avec le sucre et les oeufs en ajoutant du sucre vanillé. Ajouter le lait petit à petit. Ajouter un petit vers de rhum. Verser la masse dans un plat beurré y placer les pruneaux et faire cuire à 200° pendant 45 minutes',
+        description: 'Mélanger la Farine avec le sucre et les oeufs en ajoutant du sucre vanillé. Ajouter le lait petit à petit. Ajouter un petit vers de rhum. Verser la masse dans un plat beurré y placer les pruneaux et faire cuire à 200° pendant 45 minutes',
         appliance: 'Four',
         ustensils: ['fouet', 'moule', 'verres']
     },
@@ -1595,17 +1597,17 @@ const recipes = [
             {
                 ingredient: 'Jus de citron',
                 quantity: 100,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Mascarpone',
                 quantity: 250,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Sucre',
                 quantity: 100,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Crème Fraîche',
@@ -1614,7 +1616,7 @@ const recipes = [
             }
         ],
         time: 5,
-        description: 'Mélanger le jus de citron avec le sucre et la mascarpone. Ajouter la crème fraiche. Mélanger le tout et mettre au congélateur pendant 1 heure. Servir',
+        description: 'Mélanger le jus de citron avec le sucre et la mascarpone. Ajouter la Crème fraiche. Mélanger le tout et mettre au congélateur pendant 1 heure. Servir',
         appliance: 'Saladier',
         ustensils: ['fouet', 'verres', 'cuillère en bois']
     },
@@ -1645,13 +1647,13 @@ const recipes = [
             {
                 ingredient: 'Gruyère',
                 quantity: 200,
-                unit: 'grammes'
+                unit: 'g'
             }
         ],
         time: 40,
         description: 'Étaler la pate a pizza. Ecraser les tomates pelées, les étaler sur la pâte, ajouter les lardons et les champignons. Ajouter le gruyère eet passer au four à 220° durant 20 minutes',
         appliance: 'Four',
-        ustensils: ['rouleau à patisserie', 'râpe à fromage', 'couteau']
+        ustensils: ['rouleau à patisserie', 'râpe à fromage', 'Couteau']
     },
     {
         id: 49,
@@ -1684,7 +1686,7 @@ const recipes = [
         time: 0,
         description: "Découper les fruits. Le passer au blender jusqu'à obtenir une texture liquide. Mettre au frais. Servir",
         appliance: 'Blender',
-        ustensils: ['couteau', 'verres']
+        ustensils: ['Couteau', 'verres']
     },
     {
         id: 50,
@@ -1694,7 +1696,7 @@ const recipes = [
             {
                 ingredient: 'Pâte feuilletée',
                 quantity: 400,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Oeuf',
@@ -1703,17 +1705,17 @@ const recipes = [
             {
                 ingredient: "Poudre d'amendes",
                 quantity: 500,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Beurre',
                 quantity: 500,
-                unit: 'grammes'
+                unit: 'g'
             },
             {
                 ingredient: 'Sucre glace',
                 quantity: 500,
-                unit: 'grammes'
+                unit: 'g'
             }
         ],
         time: 60,
@@ -1725,7 +1727,7 @@ const recipes = [
 
 // DOM Elements
 const mainSearchbar = document.getElementById('main__searchbar')
-const mainSearchbarButton = document.getElementById('main__button')
+const tagContainer = document.getElementById('tag-container')
 const blueSearchbar = document.getElementById('secondary-blue__searchbar')
 const blueSearchbarButton = document.getElementById('secondary-blue__button')
 const blueSearchbarMenu = document.getElementById('secondary-blue__menu')
@@ -1736,10 +1738,10 @@ const redSearchbar = document.getElementById('secondary-red__searchbar')
 const redSearchbarButton = document.getElementById('secondary-red__button')
 const redSearchbarMenu = document.getElementById('secondary-red__menu')
 const recipesGrid = document.getElementById('recipes-grid')
+const noResults = document.getElementById('no-result')
 
 // Au chargement
 window.addEventListener('DOMContentLoaded', displayRecipesGrid(recipes))
-window.addEventListener('DOMContentLoaded', displaySearchbarMenus(recipes))
 
 // Menu bleu déroulant
 function toggleBlueNavbar () {
@@ -1771,6 +1773,8 @@ function toggleGreenNavbar () {
     } else {
         greenSearchbarMenu.style.display = 'none'
         greenSearchbar.style.width = '170px'
+        greenSearchbar.style.borderBottomLeftRadius = '5px'
+        greenSearchbar.style.borderBottomRightRadius = '5px'
     }
 }
 
@@ -1789,6 +1793,8 @@ function toggleRedNavbar () {
     } else {
         redSearchbarMenu.style.display = 'none'
         redSearchbar.style.width = '170px'
+        redSearchbar.style.borderBottomLeftRadius = '5px'
+        redSearchbar.style.borderBottomRightRadius = '5px'
     }
 }
 
@@ -1816,14 +1822,14 @@ function elFactory (type, attributes, ...children) {
 }
 
 // Remplissage dynamique de la grille de recettes
-function displayRecipesGrid () {
+function displayRecipesGrid (array) {
     recipesGrid.innerHTML = ''
-    for (let index = 0; index < recipes.length; index++) {
+    for (let index = 0; index < array.length; index++) {
         const articleElement = elFactory(
             'article',
             {
                 class: 'recipes-card__item',
-                id: 'recipe-card__' + recipes[index].id
+                id: 'recipe-card__' + array[index].id
             },
             elFactory(
                 'div',
@@ -1840,9 +1846,9 @@ function displayRecipesGrid () {
                     'h2',
                     {
                         class: 'recipes-card__title',
-                        id: 'recipe-card__title--' + recipes[index].id
+                        id: 'recipe-card__title--' + array[index].id
                     },
-                    recipes[index].name
+                    array[index].name
                 ),
                 elFactory(
                     'span',
@@ -1857,7 +1863,7 @@ function displayRecipesGrid () {
                             class: 'recipes-card__duration--icon'
                         }
                     ),
-                    recipes[index].time + ' min'
+                    array[index].time + ' min'
                 )
             ),
             elFactory(
@@ -1866,10 +1872,10 @@ function displayRecipesGrid () {
                     class: 'recipes-card__body'
                 },
                 elFactory(
-                    'div',
+                    'ul',
                     {
                         class: 'recipes-card__ingredients',
-                        id: 'recipe-' + recipes[index].id
+                        id: 'recipe-' + array[index].id
                     }
                 ),
                 elFactory(
@@ -1877,80 +1883,619 @@ function displayRecipesGrid () {
                     {
                         class: 'recipes-card__description'
                     },
-                    recipes[index].description
+                    array[index].description
                 )
             )
         )
-        /* const ingredientsBox = document.querySelector('#recipe-' + recipes[index].id)
-        for (let i = 0; i < recipes[index].ingredients.length; i++) {
-            const ingredientItem = elFactory(
-                'span',
-                {
-                    class: 'recipes-grid__ingredients--item'
-                },
-                recipes[index].ingredients[i].ingredient + ': ' + recipes[index].ingredients[i].quantity + recipes[index].ingredients[i].unit
-            )
-            ingredientsBox.appendChild(ingredientItem)
-        } */
         recipesGrid.appendChild(articleElement)
+        const ingredientsBox = document.getElementById('recipe-' + array[index].id)
+        for (let i = 0; i < array[index].ingredients.length; i++) {
+            if (array[index].ingredients[i].hasOwnProperty('quantity') && array[index].ingredients[i].hasOwnProperty('unit')) {
+                const ingredientItem = elFactory(
+                    'li',
+                    {
+                        class: 'recipes-card__ingredients--item'
+                    },
+                    array[index].ingredients[i].ingredient + ': ' + array[index].ingredients[i].quantity + array[index].ingredients[i].unit
+                )
+                ingredientsBox.appendChild(ingredientItem)
+            } else if (!array[index].ingredients[i].hasOwnProperty('unit') && array[index].ingredients[i].hasOwnProperty('quantity')) {
+                const ingredientItem = elFactory(
+                    'li',
+                    {
+                        class: 'recipes-card__ingredients--item'
+                    },
+                    array[index].ingredients[i].ingredient + ': ' + array[index].ingredients[i].quantity
+                )
+                ingredientsBox.appendChild(ingredientItem)
+            } else if (!array[index].ingredients[i].hasOwnProperty('quantity')) {
+                const ingredientItem = elFactory(
+                    'li',
+                    {
+                        class: 'recipes-card__ingredients--item'
+                    },
+                    array[index].ingredients[i].ingredient
+                )
+                ingredientsBox.appendChild(ingredientItem)
+            }
+        }
+    }
+    if (recipesGrid.childElementCount === 0) {
+        noResults.style.display = 'flex'
+    } else {
+        noResults.style.display = 'none'
     }
 }
 
-// Contenu des barres de recherches secondaires
-function displaySearchbarMenus () {
-    blueSearchbarMenu.innerHTML = ''
-    for (let index = 0; index < recipes.length; index++) {
-        for (let i = 0; i < recipes[index].ingredients.length; i++) {
-            const ingredientList = elFactory(
-                'li',
-                {
-                    class: 'item-menu'
-                },
-                recipes[index].ingredients[i].ingredient
-            )
-            blueSearchbarMenu.appendChild(ingredientList)
+// Algorithme de recherche mainSearch
+// Recettes
+function filterMainSearch (recipe, input) {
+    if (recipe.name.toLowerCase().includes(input) || recipe.description.toLowerCase().includes(input)) {
+        return true
+    }
+    for (let index = 0; index < recipe.ingredients.length; index++) {
+        const element = recipe.ingredients[index]
+        if (element.ingredient.toLowerCase().includes(input)) {
+            return true
         }
     }
+    return false
+}
+
+mainSearchbar.addEventListener('input', e => {
+    const input = e.target.value.toLowerCase()
+    if (input.length >= 3) {
+        const newRecipesList = recipes.filter(recipe => filterMainSearch(recipe, input))
+        displayRecipesGrid(newRecipesList)
+        let ingArraySearch = []
+        let appArraySearch = []
+        let ustArraySearch = []
+        if (blueSearchbar.value.length >= 3) {
+            ingArraySearch = ingArraySearch.filter(ing => ing.toLowerCase().includes(blueSearchbar.value.toLowerCase()))
+        }
+        if (greenSearchbar.value.length >= 3) {
+            appArraySearch = appArraySearch.filter(app => app.toLowerCase().includes(greenSearchbar.value.toLowerCase()))
+        }
+        if (redSearchbar.value.length >= 3) {
+            ustArraySearch = ustArraySearch.filter(ust => ust.toLowerCase().includes(redSearchbar.value.toLowerCase()))
+        }
+        refreshSecondaryMenus(ingArraySearch, appArraySearch, ustArraySearch, newRecipesList)
+    } else if (input.length < 3 && tagContainer.childElementCount === 0) {
+        displayRecipesGrid(recipes)
+        refreshSecondaryMenus(ingArray, appArray, ustArray, recipes)
+    } else if (input.length < 3 && tagContainer.childElementCount > 0) {
+        const mainList = recipes.filter(recipe => filterMainSearch(recipe, input))
+        filterByTag(mainList)
+    }
+})
+
+// Contenu des barres de recherches secondaires
+// Création de tableaux pour supprimer les doublons
+function refreshSecondaryMenus (blue, green, red, recipesList) {
+    const ingArr = []
+    for (let index = 0; index < recipesList.length; index++) {
+        for (let i = 0; i < recipesList[index].ingredients.length; i++) {
+            ingArr.push(recipesList[index].ingredients[i].ingredient)
+        }
+    }
+    const setIngArr = new Set(ingArr)
+    blue = [...setIngArr]
+
+    const appArr = []
+    for (let index = 0; index < recipesList.length; index++) {
+        appArr.push(recipesList[index].appliance)
+    }
+    const setAppArr = new Set(appArr)
+    green = [...setAppArr]
+
+    const ustArr = []
+    for (let index = 0; index < recipesList.length; index++) {
+        for (let i = 0; i < recipesList[index].ustensils.length; i++) {
+            ustArr.push(recipesList[index].ustensils[i])
+        }
+    }
+    const setUstArr = new Set(ustArr)
+    red = [...setUstArr]
+    displayBlueSearchbarMenu(blue)
+    displayGreenSearchbarMenu(green)
+    displayRedSearchbarMenu(red)
+}
+
+const ingArray = []
+const appArray = []
+const ustArray = []
+
+window.addEventListener('DOMContentLoaded', refreshSecondaryMenus(ingArray, appArray, ustArray, recipes))
+
+// Lecture des nouveaux tableaux
+function displayBlueSearchbarMenu (arrayBlue) {
+    blueSearchbarMenu.innerHTML = ''
+    for (let index = 0; index < arrayBlue.length; index++) {
+        const ingredientList = elFactory(
+            'li',
+            {
+                class: 'item__menu'
+            },
+            elFactory(
+                'a',
+                {
+                    class: 'blue__link',
+                    href: '#'
+                },
+                arrayBlue[index]
+            )
+        )
+        blueSearchbarMenu.appendChild(ingredientList)
+    }
+    document.querySelectorAll('.blue__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
+}
+
+function displayGreenSearchbarMenu (arrayGreen) {
     greenSearchbarMenu.innerHTML = ''
-    for (let index = 0; index < recipes.length; index++) {
+    for (let index = 0; index < arrayGreen.length; index++) {
         const applianceList = elFactory(
             'li',
             {
-                class: 'item-menu'
+                class: 'item__menu'
             },
-            recipes[index].appliance
+            elFactory(
+                'a',
+                {
+                    class: 'green__link',
+                    href: '#'
+                },
+                arrayGreen[index]
+            )
         )
         greenSearchbarMenu.appendChild(applianceList)
     }
+    document.querySelectorAll('.green__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
+}
+
+function displayRedSearchbarMenu (arrayRed) {
     redSearchbarMenu.innerHTML = ''
-    for (let index = 0; index < recipes.length; index++) {
-        for (let i = 0; i < recipes[index].ustensils.length; i++) {
-            const ustensilList = elFactory(
-                'li',
+    for (let index = 0; index < arrayRed.length; index++) {
+        const ustensilList = elFactory(
+            'li',
+            {
+                class: 'item__menu'
+            },
+            elFactory(
+                'a',
                 {
-                    class: 'item-menu'
+                    class: 'red__link',
+                    href: '#'
                 },
-                recipes[index].ustensils[i]
+                arrayRed[index]
             )
-            redSearchbarMenu.appendChild(ustensilList)
+        )
+        redSearchbarMenu.appendChild(ustensilList)
+    }
+    document.querySelectorAll('.red__link').forEach(item => item.addEventListener('click', () => makeATag(item)))
+}
+
+// Algorithme de recherche secondarySearch
+function inputByBlueTag (recipesList, input) {
+    const tags = document.querySelectorAll('.tag')
+    const blueTagContent = []
+    const greenTagContent = []
+    const redTagContent = []
+    for (let index = 0; index < tags.length; index++) {
+        const classTag = tags[index].classList
+        if (classTag.contains('tag__blue')) {
+            blueTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__green')) {
+            greenTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__red')) {
+            redTagContent.push(tags[index].textContent)
         }
+    }
+    const newRecipesList = recipesList.filter(recipe => filterSecondarySearch(recipe, blueTagContent, greenTagContent, redTagContent))
+    const ingArr = []
+    for (let index = 0; index < newRecipesList.length; index++) {
+        for (let i = 0; i < newRecipesList[index].ingredients.length; i++) {
+            ingArr.push(newRecipesList[index].ingredients[i].ingredient)
+        }
+    }
+    const setIngArr = new Set(ingArr)
+    const ingArray = [...setIngArr]
+    if (input.length < 3) {
+        displayBlueSearchbarMenu(ingArray)
+    } else {
+        const list = ingArray.filter(ing => ing.toLowerCase().includes(input))
+        displayBlueSearchbarMenu(list)
     }
 }
 
-// Algorithme de recherche
-const searchContent = mainSearchbar.value
-console.log(searchContent)
+function inputByGreenTag (recipesList, input) {
+    const tags = document.querySelectorAll('.tag')
+    const blueTagContent = []
+    const greenTagContent = []
+    const redTagContent = []
+    for (let index = 0; index < tags.length; index++) {
+        const classTag = tags[index].classList
+        if (classTag.contains('tag__blue')) {
+            blueTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__green')) {
+            greenTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__red')) {
+            redTagContent.push(tags[index].textContent)
+        }
+    }
+    const newRecipesList = recipesList.filter(recipe => filterSecondarySearch(recipe, blueTagContent, greenTagContent, redTagContent))
+    const appArr = []
+    for (let index = 0; index < newRecipesList.length; index++) {
+        appArr.push(newRecipesList[index].appliance)
+    }
+    const setAppArr = new Set(appArr)
+    const appArray = [...setAppArr]
+    if (input.length < 3) {
+        displayGreenSearchbarMenu(appArray)
+    } else {
+        const list = appArray.filter(app => app.toLowerCase().includes(input))
+        displayGreenSearchbarMenu(list)
+    }
+}
 
-function mainSearch (keyword) {
+function inputByRedTag (recipesList, input) {
+    const tags = document.querySelectorAll('.tag')
+    const blueTagContent = []
+    const greenTagContent = []
+    const redTagContent = []
+    for (let index = 0; index < tags.length; index++) {
+        const classTag = tags[index].classList
+        if (classTag.contains('tag__blue')) {
+            blueTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__green')) {
+            greenTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__red')) {
+            redTagContent.push(tags[index].textContent)
+        }
+    }
+    const newRecipesList = recipesList.filter(recipe => filterSecondarySearch(recipe, blueTagContent, greenTagContent, redTagContent))
+    const ustArr = []
+    for (let index = 0; index < newRecipesList.length; index++) {
+        for (let i = 0; i < newRecipesList[index].ustensils.length; i++) {
+            ustArr.push(newRecipesList[index].ustensils[i])
+        }
+    }
+    const setUstArr = new Set(ustArr)
+    const ustArray = [...setUstArr]
+    if (input.length < 3) {
+        displayRedSearchbarMenu(ustArray)
+    } else {
+        const list = ustArray.filter(ust => ust.toLowerCase().includes(input))
+        displayRedSearchbarMenu(list)
+    }
+}
+
+// Blue
+blueSearchbar.addEventListener('input', e => {
+    const input = e.target.value.toLowerCase()
+    const mainInput = mainSearchbar.value
+    const newRecipesList = recipes.filter(recipe => filterMainSearch(recipe, mainInput))
+    let ingArr = []
     for (let index = 0; index < recipes.length; index++) {
-        const recipeCard = document.getElementById('recipe-card__' + recipes[index].id)
-        const recipeTitle = recipes[index].name
-        if (recipeTitle.includes(keyword)) {
-            recipeCard.style.display = 'block'
-        } else {
-            recipeCard.style.display = 'none'
+        for (let i = 0; i < recipes[index].ingredients.length; i++) {
+            ingArr.push(recipes[index].ingredients[i].ingredient)
         }
+    }
+    let setIngArr = new Set(ingArr)
+    let ingArray = [...setIngArr]
+    if (input.length >= 3 && mainInput.length < 3) {
+        const newIngList = ingArray.filter(ing => ing.toLowerCase().includes(input))
+        displayBlueSearchbarMenu(newIngList)
+        if (tagContainer.childElementCount > 0) {
+            inputByBlueTag(recipes, input)
+        }
+    } else if (input.length < 3 && mainInput.length < 3) {
+        if (tagContainer.childElementCount === 0) {
+            displayBlueSearchbarMenu(ingArray)
+        } else if (tagContainer.childElementCount > 0) {
+            inputByBlueTag(recipes, input)
+        }
+    } else if (input.length >= 3 && mainInput.length >= 3) {
+        ingArr = []
+        for (let index = 0; index < newRecipesList.length; index++) {
+            for (let i = 0; i < newRecipesList[index].ingredients.length; i++) {
+                ingArr.push(newRecipesList[index].ingredients[i].ingredient)
+            }
+        }
+        setIngArr = new Set(ingArr)
+        ingArray = [...setIngArr]
+        const list = ingArray.filter(ing => ing.toLowerCase().includes(input))
+        displayBlueSearchbarMenu(list)
+    } else if (input.length < 3 && mainInput.length >= 3) {
+        ingArr = []
+        for (let index = 0; index < newRecipesList.length; index++) {
+            for (let i = 0; i < newRecipesList[index].ingredients.length; i++) {
+                ingArr.push(newRecipesList[index].ingredients[i].ingredient)
+            }
+        }
+        setIngArr = new Set(ingArr)
+        ingArray = [...setIngArr]
+        displayBlueSearchbarMenu(ingArray)
+    }
+})
+
+// Green
+greenSearchbar.addEventListener('input', e => {
+    const input = e.target.value.toLowerCase()
+    const mainInput = mainSearchbar.value
+    const newRecipesList = recipes.filter(recipe => filterMainSearch(recipe, mainInput))
+    let appArr = []
+    for (let index = 0; index < newRecipesList.length; index++) {
+        appArr.push(newRecipesList[index].appliance)
+    }
+    let setAppArr = new Set(appArr)
+    let appArray = [...setAppArr]
+    if (input.length >= 3 && mainInput.length < 3) {
+        const newAppList = appArray.filter(app => app.toLowerCase().includes(input))
+        displayGreenSearchbarMenu(newAppList)
+        if (tagContainer.childElementCount > 0) {
+            inputByGreenTag(recipes, input)
+        }
+    } else if (input.length < 3 && mainInput.length < 3) {
+        if (tagContainer.childElementCount === 0) {
+            displayGreenSearchbarMenu(appArray)
+        } else if (tagContainer.childElementCount > 0) {
+            inputByGreenTag(recipes, input)
+        }
+    } else if (input.length >= 3 && mainInput.length >= 3) {
+        appArr = []
+        for (let index = 0; index < newRecipesList.length; index++) {
+            appArr.push(newRecipesList[index].appliance)
+        }
+        setAppArr = new Set(appArr)
+        appArray = [...setAppArr]
+        const list = appArray.filter(app => app.toLowerCase().includes(input))
+        displayGreenSearchbarMenu(list)
+    } else if (input.length < 3 && mainInput.length >= 3) {
+        appArr = []
+        for (let index = 0; index < newRecipesList.length; index++) {
+            appArr.push(newRecipesList[index].appliance)
+        }
+        setAppArr = new Set(appArr)
+        appArray = [...setAppArr]
+        displayGreenSearchbarMenu(appArray)
+    }
+})
+
+// Red
+redSearchbar.addEventListener('input', e => {
+    const input = e.target.value.toLowerCase()
+    const mainInput = mainSearchbar.value
+    const newRecipesList = recipes.filter(recipe => filterMainSearch(recipe, mainInput))
+    let ustArr = []
+    for (let index = 0; index < newRecipesList.length; index++) {
+        for (let i = 0; i < newRecipesList[index].ustensils.length; i++) {
+            ustArr.push(newRecipesList[index].ustensils[i])
+        }
+    }
+    let setUstArr = new Set(ustArr)
+    let ustArray = [...setUstArr]
+    if (input.length >= 3 && mainInput < 3) {
+        const newUstList = ustArray.filter(ust => ust.toLowerCase().includes(input))
+        displayRedSearchbarMenu(newUstList)
+        if (tagContainer.childElementCount > 0) {
+            inputByRedTag(recipes, input)
+        }
+    } else if (input.length < 3 && mainInput < 3) {
+        if (tagContainer.childElementCount === 0) {
+            displayRedSearchbarMenu(ustArray)
+        } else if (tagContainer.childElementCount > 0) {
+            inputByRedTag(recipes, input)
+        }
+    } else if (input.length >= 3 && mainInput.length >= 3) {
+        ustArr = []
+        for (let index = 0; index < newRecipesList.length; index++) {
+            for (let i = 0; i < newRecipesList[index].ustensils.length; i++) {
+                ustArr.push(newRecipesList[index].ustensils[i])
+            }
+        }
+        setUstArr = new Set(ustArr)
+        ustArray = [...setUstArr]
+        const list = ustArray.filter(ust => ust.toLowerCase().includes(input))
+        displayRedSearchbarMenu(list)
+    } else if (input.length < 3 && mainInput.length >= 3) {
+        ustArr = []
+        for (let index = 0; index < newRecipesList.length; index++) {
+            for (let i = 0; i < newRecipesList[index].ustensils.length; i++) {
+                ustArr.push(newRecipesList[index].ustensils[i])
+            }
+        }
+        setUstArr = new Set(ustArr)
+        ustArray = [...setUstArr]
+        displayRedSearchbarMenu(ustArray)
+    }
+})
+
+// Filtre des tags
+function filterSecondarySearch (recipe, array1, array2, array3) {
+    if (array1.length !== 0 && array2.length === 0 && array3.length === 0) {
+        const listOfIngredients = recipe.ingredients.map(item => {
+            return item.ingredient
+        })
+        if (checker(listOfIngredients.map(ingredient => ingredient.toLowerCase()), array1)) {
+            return true
+        }
+        return false
+    }
+    if (array1.length === 0 && array2.length !== 0 && array3.length === 0) {
+        if (array2.length === 1 && array2.includes(recipe.appliance.toLowerCase())) {
+            return true
+        }
+        return false
+    }
+    if (array1.length === 0 && array2.length === 0 && array3.length !== 0) {
+        if (checker(recipe.ustensils.map(ustensil => ustensil.toLowerCase()), array3)) {
+            return true
+        }
+        return false
+    }
+    if (array1.length !== 0 && array2.length !== 0 && array3.length === 0) {
+        const listOfIngredients = recipe.ingredients.map(item => {
+            return item.ingredient
+        })
+        if (checker(listOfIngredients.map(ingredient => ingredient.toLowerCase()), array1) && array2.length === 1 && array2.includes(recipe.appliance.toLowerCase())) {
+            return true
+        }
+        return false
+    }
+    if (array1.length !== 0 && array2.length === 0 && array3.length !== 0) {
+        const listOfIngredients = recipe.ingredients.map(item => {
+            return item.ingredient
+        })
+        if (checker(listOfIngredients.map(ingredient => ingredient.toLowerCase()), array1) && checker(recipe.ustensils.map(ustensil => ustensil.toLowerCase()), array3)) {
+            return true
+        }
+        return false
+    }
+    if (array1.length === 0 && array2.length !== 0 && array3.length !== 0) {
+        if (array2.length === 1 && array2.includes(recipe.appliance.toLowerCase()) && checker(recipe.ustensils.map(ustensil => ustensil.toLowerCase()), array3)) {
+            return true
+        }
+        return false
+    }
+    if (array1.length !== 0 && array2.length !== 0 && array3.length !== 0) {
+        const listOfIngredients = recipe.ingredients.map(item => {
+            return item.ingredient
+        })
+        if (checker(listOfIngredients.map(ingredient => ingredient.toLowerCase()), array1) && array2.length === 1 && array2.includes(recipe.appliance.toLowerCase()) && checker(recipe.ustensils.map(ustensil => ustensil.toLowerCase()), array3)) {
+            return true
+        }
+        return false
     }
 }
 
-mainSearchbarButton.addEventListener('click', mainSearch(searchContent))
+const checker = (arr, target) => {
+    if (target.every(item => arr.includes(item))) {
+        return true
+    }
+}
+
+// Création des tags
+function filterByTag (recipesList) {
+    const tags = document.querySelectorAll('.tag')
+    const blueTagContent = []
+    const greenTagContent = []
+    const redTagContent = []
+    for (let index = 0; index < tags.length; index++) {
+        const classTag = tags[index].classList
+        if (classTag.contains('tag__blue')) {
+            blueTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__green')) {
+            greenTagContent.push(tags[index].textContent)
+        } else if (classTag.contains('tag__red')) {
+            redTagContent.push(tags[index].textContent)
+        }
+    }
+    const newRecipesList = recipesList.filter(recipe => filterSecondarySearch(recipe, blueTagContent, greenTagContent, redTagContent))
+    displayRecipesGrid(newRecipesList)
+    const ingArrTag = []
+    const appArrTag = []
+    const ustArrTag = []
+    refreshSecondaryMenus(ingArrTag, appArrTag, ustArrTag, newRecipesList)
+}
+
+function makeATag (item) {
+    const classItem = item.classList
+    const contentItem = item.textContent.toLowerCase()
+    if (classItem.contains('blue__link')) {
+        const blueTag = elFactory(
+            'div',
+            {
+                class: 'tag tag__blue'
+            },
+            contentItem,
+            elFactory(
+                'button',
+                {
+                    class: 'tag__close'
+                },
+                elFactory(
+                    'img',
+                    {
+                        class: 'tag__close--img',
+                        src: './PNG/close_tag.png'
+                    }
+                )
+            )
+        )
+        tagContainer.appendChild(blueTag)
+        toggleBlueNavbar()
+        blueSearchbar.value = ''
+    } else if (classItem.contains('green__link')) {
+        const greenTag = elFactory(
+            'div',
+            {
+                class: 'tag tag__green'
+            },
+            contentItem,
+            elFactory(
+                'button',
+                {
+                    class: 'tag__close'
+                },
+                elFactory(
+                    'img',
+                    {
+                        class: 'tag__close--img',
+                        src: './PNG/close_tag.png'
+                    }
+                )
+            )
+        )
+        tagContainer.appendChild(greenTag)
+        toggleGreenNavbar()
+        greenSearchbar.value = ''
+    } else if (classItem.contains('red__link')) {
+        const redTag = elFactory(
+            'div',
+            {
+                class: 'tag tag__red'
+            },
+            contentItem,
+            elFactory(
+                'button',
+                {
+                    class: 'tag__close'
+                },
+                elFactory(
+                    'img',
+                    {
+                        class: 'tag__close--img',
+                        src: './PNG/close_tag.png'
+                    }
+                )
+            )
+        )
+        tagContainer.appendChild(redTag)
+        toggleRedNavbar()
+        redSearchbar.value = ''
+    }
+    const input = mainSearchbar.value.toLowerCase()
+    const mainList = recipes.filter(recipe => filterMainSearch(recipe, input))
+    filterByTag(mainList)
+    document.querySelectorAll('.tag__close').forEach(item => item.addEventListener('click', () => removeATag(item)))
+}
+
+// Suppression des tags
+function removeATag (item) {
+    const tag = item.parentNode
+    tag.remove()
+    const tags = document.querySelectorAll('.tag')
+    if (tags.length !== 0) {
+        const input = mainSearchbar.value.toLowerCase()
+        const mainList = recipes.filter(recipe => filterMainSearch(recipe, input))
+        filterByTag(mainList)
+    } else {
+        const input = mainSearchbar.value.toLowerCase()
+        const mainList = recipes.filter(recipe => filterMainSearch(recipe, input))
+        const ingArrTag = []
+        const appArrTag = []
+        const ustArrTag = []
+        refreshSecondaryMenus(ingArrTag, appArrTag, ustArrTag, mainList)
+        displayRecipesGrid(mainList)
+    }
+}

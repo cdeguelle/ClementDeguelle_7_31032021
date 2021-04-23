@@ -17,6 +17,7 @@ header {
 
 #main {
   display: flex;
+  flex-direction: column;
   margin: 20px 100px; }
   #main__searchbar {
     width: 100%;
@@ -26,9 +27,10 @@ header {
     border: #E7E7E7;
     padding-left: 20px; }
   #main__button {
+    position: absolute;
     height: 60px;
     background-color: #E7E7E7;
-    margin-left: -50px;
+    right: 120px;
     margin-top: 5px;
     border: none;
     cursor: pointer; }
@@ -54,11 +56,13 @@ header {
       opacity: 1; }
   #secondary-blue input {
     background-color: #3282F7;
-    border: #3282F7; }
+    border: #3282F7;
+    color: #ffffff; }
   #secondary-blue button {
+    position: relative;
+    right: 50px;
     background-color: #3282F7;
     border: #3282F7;
-    margin-left: -50px;
     border: none;
     cursor: pointer; }
   #secondary-blue__menu {
@@ -74,14 +78,17 @@ header {
     border-bottom-right-radius: 5px;
     margin-right: 20px;
     padding: 0 0 15px 15px;
-    z-index: -1; }
+    z-index: 10;
+    position: absolute; }
   #secondary-green input {
     background: #68D9A4;
-    border: #68D9A4; }
+    border: #68D9A4;
+    color: #ffffff; }
   #secondary-green button {
+    position: relative;
+    right: 50px;
     background: #68D9A4;
     border: #68D9A4;
-    margin-left: -50px;
     border: none;
     cursor: pointer; }
   #secondary-green__menu {
@@ -97,14 +104,17 @@ header {
     border-bottom-right-radius: 5px;
     margin-right: 20px;
     padding: 0 0 15px 15px;
-    z-index: -1; }
+    z-index: 10;
+    position: absolute; }
   #secondary-red input {
     background: #ED6454;
-    border: #ED6454; }
+    border: #ED6454;
+    color: #ffffff; }
   #secondary-red button {
+    position: relative;
+    right: 50px;
     background: #ED6454;
     border: #ED6454;
-    margin-left: -50px;
     border: none;
     cursor: pointer; }
   #secondary-red__menu {
@@ -120,13 +130,40 @@ header {
     border-bottom-right-radius: 5px;
     margin-right: 20px;
     padding: 0 0 15px 15px;
-    z-index: -1; }
+    z-index: 10;
+    position: absolute; }
 
-.item-menu {
+.item__menu {
   font-size: 1.1em;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis; }
+  .item__menu a {
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer; }
+
+#tag-container {
+  display: flex; }
+
+.tag {
+  display: flex;
+  margin: 15px 15px 0 0;
+  padding: 8px;
+  border-radius: 5px;
+  color: #ffffff;
+  max-width: 250px; }
+  .tag__blue {
+    background-color: #3282F7; }
+  .tag__green {
+    background-color: #68D9A4; }
+  .tag__red {
+    background-color: #ED6454; }
+  .tag__close {
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none; }
 
 * {
   margin: 0;
@@ -157,16 +194,26 @@ header {
   margin: 20px; }
 
 .recipes-card__title {
-  font-size: 1.2em;
+  font-size: 1em;
   max-width: 250px; }
 
-.recipes-card__duration--icon {
-  margin-right: 5px; }
+.recipes-card__duration {
+  display: flex; }
+  .recipes-card__duration--icon {
+    margin-right: 5px;
+    height: 20px; }
 
 .recipes-card__body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin: 20px; }
+  margin: 20px;
+  padding-right: 5px; }
+
+.recipes-card__ingredients {
+  font-size: 0.8em;
+  list-style: none; }
+  .recipes-card__ingredients--item {
+    margin-bottom: 5px; }
 
 .recipes-card__description {
   font-size: 0.8em;
@@ -176,4 +223,10 @@ header {
   max-height: 9.6em;
   text-align: justify;
   text-overflow: ellipsis; }
+
+#no-result {
+  display: none;
+  justify-content: center;
+  margin-top: 80px;
+  font-size: 2em; }
 
