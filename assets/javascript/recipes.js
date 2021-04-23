@@ -1928,6 +1928,18 @@ function displayRecipesGrid (array) {
 }
 
 // Algorithme de recherche mainSearch
+function filterMainSearch (recipe, input) {
+    if (recipe.name.toLowerCase().includes(input) || recipe.description.toLowerCase().includes(input)) {
+        return true
+    }
+    for (let index = 0; index < recipe.ingredients.length; index++) {
+        const element = recipe.ingredients[index]
+        if (element.ingredient.toLowerCase().includes(input)) {
+            return true
+        }
+    }
+    return false
+}
 
 // Contenu des barres de recherches secondaires
 // Création de tableaux pour supprimer les doublons
