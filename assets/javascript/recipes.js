@@ -1741,7 +1741,7 @@ const recipesGrid = document.getElementById('recipes-grid')
 const noResults = document.getElementById('no-result')
 
 // Au chargement
-window.addEventListener('DOMContentLoaded', displayRecipesGrid(recipes))
+window.addEventListener('DOMContentLoaded', sortRecipesGrid(recipes))
 
 // Menu bleu déroulant
 function toggleBlueNavbar () {
@@ -1930,12 +1930,12 @@ function displayRecipesGrid (array) {
 // Algorithme de recherche mainSearch
 // Filtre
 function filterMainSearch (recipe, input) {
-    if (recipe.name.toLowerCase().includes(input) || recipe.description.toLowerCase().includes(input)) {
+    if (recipe.name.toLowerCase().indexOf(input) > -1 || recipe.description.toLowerCase().indexOf(input) > -1) {
         return true
     }
     for (let index = 0; index < recipe.ingredients.length; index++) {
         const element = recipe.ingredients[index]
-        if (element.ingredient.toLowerCase().includes(input)) {
+        if (element.ingredient.toLowerCase().indexOf(input) > -1) {
             return true
         }
     }
@@ -1943,20 +1943,35 @@ function filterMainSearch (recipe, input) {
 }
 
 // Tri
-function sortRecipesGrid (recipesList) {
-    for (let index = 0; index < recipesList.length; index++) {
-        let i = index + 1
-        while (recipesList[index] > recipesList[i]) {
-            const temp = recipesList[index]
-            recipesList[index] = recipesList[i]
-            recipesList[i] = temp
-            i++
-        }
+function compare (a, b) {
+    if (a.name < b.name) {
+        return -1
     }
-    for (let index = 0; index < recipesList.length; index++) {
-        displayRecipesGrid(recipesList)
+    if (a.name > b.name) {
+        return 1
     }
+    return 0
 }
+
+function sortRecipesGrid (recipesList) {
+    recipesList.sort(compare)
+    displayRecipesGrid(recipesList)
+}
+
+// Search
+mainSearchbar.addEventListener('input', e => {
+    const input = e.target.value.toLowerCase()
+    if (input.length >= 3) {
+        const newRecipesList = recipes.filter(recipe => filterMainSearch(recipe, input))
+        sortRecipesGrid(newRecipesList)
+    } else if (input.length < 3 && tagContainer.childElementCount === 0) {
+        sortRecipesGrid(recipes)
+        refreshSecondaryMenus(ingArray, appArray, ustArray, recipes)
+    } else if (input.length < 3 && tagContainer.childElementCount > 0) {
+        const mainList = recipes.filter(recipe => filterMainSearch(recipe, input))
+        filterByTag(mainList)
+    }
+})
 
 // Contenu des barres de recherches secondaires
 // Création de tableaux pour supprimer les doublons
