@@ -1930,16 +1930,27 @@ function displayRecipesGrid (array) {
 // Algorithme de recherche mainSearch
 // Filtre
 function filterMainSearch (recipe, input) {
-    if (recipe.name.toLowerCase().indexOf(input) > -1 || recipe.description.toLowerCase().indexOf(input) > -1) {
+    for (let index = 0; index < recipe.ingredients.length; index++) {
+        const element = recipe.ingredients[index]
+        if (!recipe.name.toLowerCase().includes(input.substr(0, 1)) && !recipe.description.toLowerCase().includes(input.substr(0, 1)) && !element.ingredient.toLowerCase().includes(input.substr(0, 1))) {
+            return false
+        }
+    }
+    for (let index = 0; index < recipe.ingredients.length; index++) {
+        const element = recipe.ingredients[index]
+        if (!recipe.name.toLowerCase().includes(input.substr(0, 2)) && !recipe.description.toLowerCase().includes(input.substr(0, 2)) && !element.ingredient.toLowerCase().includes(input.substr(0, 2))) {
+            return false
+        }
+    }
+    if (recipe.name.toLowerCase().includes(input) || recipe.description.toLowerCase().includes(input)) {
         return true
     }
     for (let index = 0; index < recipe.ingredients.length; index++) {
         const element = recipe.ingredients[index]
-        if (element.ingredient.toLowerCase().indexOf(input) > -1) {
+        if (element.ingredient.toLowerCase().includes(input)) {
             return true
         }
     }
-    return false
 }
 
 // Tri
