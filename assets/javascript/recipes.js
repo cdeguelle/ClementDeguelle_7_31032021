@@ -1975,6 +1975,7 @@ mainSearchbar.addEventListener('input', e => {
     if (input.length >= 3) {
         const newRecipesList = recipes.filter(recipe => filterMainSearch(recipe, input))
         sortRecipesGrid(newRecipesList)
+        refreshSecondaryMenus(ingArray, appArray, ustArray, newRecipesList)
     } else if (input.length < 3 && tagContainer.childElementCount === 0) {
         sortRecipesGrid(recipes)
         refreshSecondaryMenus(ingArray, appArray, ustArray, recipes)
